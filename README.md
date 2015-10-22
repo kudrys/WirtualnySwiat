@@ -1,7 +1,8 @@
-# WirtualnySwiat
+﻿# WirtualnySwiat
 Swiat ze zwierzetami
 
-                             **********************************
+***
+
 |Id |  zwierzę | siła |  inicjatywa |   specyfika metody akcja()   |  specyfika metody kolizja()
 |---|----------|------|-------------|------------------------------|-----------------------------
 |1  |   wilk   |  9   |      5      |            brak              |            brak
