@@ -9,7 +9,8 @@ Swiat ze zwierzetami
 |5  |   żółw   |  2   |      1      | W 75% przypadków nie zmienia swojego położenia. |  Odpiera ataki zwierząt o sile <5. Napastnik musi wrócić na swoje poprzednie pole
 |9  |   lew    | 11   |      7      |            brak              |  Król zwierząt: żadne zwierzę o sile < 5  nie ośmieli się wejść na pole zajmowane przez lwa
 
-                             ***
+***
+
 |roślina    |  siła      |           specyfika metody akcja()      | specyfika metody kolizja()
 |-----------|------------|---------------------------------------- |------------------------------
 |guarana    |   0        |                     brak                | Zwiększa siłę zwierzęcia, które zjadło tę roślinę, o 3.
