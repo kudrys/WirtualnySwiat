@@ -1,11 +1,18 @@
 #include "Organizm.h"
 
-Organizm::Organizm()
-{
-    //ctor
+Organizm::Organizm(int s , int i){
+    int sila = s;
+    int inicjatywa = i;
 }
 
-Organizm::~Organizm()
-{
+Organizm::~Organizm(){
     //dtor
+}
+
+void Organizm::akcja(){
+
+}
+
+void Organizm::kolizja(){
+
 }

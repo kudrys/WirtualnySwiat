@@ -5,10 +5,17 @@
 class Organizm
 {
     public:
-        Organizm();
+        Organizm(int,int);
         virtual ~Organizm();
     protected:
     private:
+        int x;
+        int y;
+        int sila;
+        int inicjatywa;
+        void akcja();
+        void kolizja();
+        void rysowanieOrganizmu();
 };
 
 #endif // ORGANIZM_H
