@@ -16,4 +16,10 @@ Swiat ze zwierzetami
 |-----------|------------|---------------------------------------- |------------------------------
 |guarana    |   0        |                     brak                | Zwiększa siłę zwierzęcia, które zjadło tę roślinę, o 3.
 |cierń      |   2        |     Próby rozprzestrzeniania się zawsze  kończą się sukcesem.          | brak
-                         
+
+TO DO:
+*Pamietac o inicjatywie i wieku(wstepny pomysl to mielic wsystko i ustalac kolejnosc w tablicy)
+*Poszukac zwierzat w ASCI
+*wylosowac od 1-8 jakie zwierzatko sie utworzy a potem Switch
+*porobic metody zwierzatkom
+*funkcja przerabiajaca wsp na xy
