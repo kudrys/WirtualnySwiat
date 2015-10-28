@@ -36,11 +36,17 @@
 		<Unit filename="include/Organizm.h" />
 		<Unit filename="include/Roslina.h" />
 		<Unit filename="include/Swiat.h" />
+		<Unit filename="include/Trawa.h" />
+		<Unit filename="include/Wilk.h" />
+		<Unit filename="include/Zolw.h" />
 		<Unit filename="include/Zwierze.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Organizm.cpp" />
 		<Unit filename="src/Roslina.cpp" />
 		<Unit filename="src/Swiat.cpp" />
+		<Unit filename="src/Trawa.cpp" />
+		<Unit filename="src/Wilk.cpp" />
+		<Unit filename="src/Zolw.cpp" />
 		<Unit filename="src/Zwierze.cpp" />
 		<Extensions>
 			<code_completion />

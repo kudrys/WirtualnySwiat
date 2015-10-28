@@ -2,11 +2,14 @@
 #define ZWIERZE_H
 #include "Organizm.h"
 
-class Zwierze:public Organizm{
+class Zwierze:public Organizm
+{
     public:
-        Zwierze();
+        Zwierze(int,int);
         virtual ~Zwierze();
     protected:
+        int sila;
+        int inicjatywa;
     private:
         void akcja();
         void rozmnazanie();
