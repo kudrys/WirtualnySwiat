@@ -1,4 +1,5 @@
 #include "Zwierze.h"
+#include "Organizm.h"
 
 Zwierze::Zwierze(){
     //ctor

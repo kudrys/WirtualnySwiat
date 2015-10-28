@@ -1,6 +1,6 @@
 #ifndef SWIAT_H
 #define SWIAT_H
-
+#include "Organizm.h"
 
 class Swiat
 {
@@ -8,7 +8,7 @@ class Swiat
         Swiat();
         virtual ~Swiat();
     protected:
-        int organizmy[];
+        Organizm organizmyTab[];
     private:
         void rysujSwiat();
         void wykonajTure();
