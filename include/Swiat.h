@@ -5,11 +5,13 @@
 class Swiat
 {
     public:
-        Swiat();
+        Swiat(int,int);
         virtual ~Swiat();
         void losowanieXY();
     protected:
-        Organizm organizmyTab[20][20];
+        int wysokosc;   //y
+        int szerokosc;  //x
+        Organizm *** organizmyTab;  //wskaznik na wskaznik (tablica tablic)
 
     private:
         void rysujSwiat();

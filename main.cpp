@@ -4,6 +4,6 @@ using namespace std;
 
 int main(){
     cout<<"RYSZARD KUDUK 143271\n";
-    Swiat nowy;
+    Swiat nowy(10,20);
     nowy.losowanieXY();
 }
