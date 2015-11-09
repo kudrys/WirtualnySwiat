@@ -5,7 +5,7 @@
 class Zwierze:public Organizm
 {
     public:
-        Zwierze(int,int);
+        Zwierze();
         virtual ~Zwierze();
     protected:
         int sila;

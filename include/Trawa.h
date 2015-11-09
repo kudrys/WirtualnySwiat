@@ -1,8 +1,8 @@
 #ifndef TRAWA_H
 #define TRAWA_H
+#include "Roslina.h"
 
-
-class Trawa
+class Trawa:public Roslina
 {
     public:
         Trawa();

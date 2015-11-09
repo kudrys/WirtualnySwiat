@@ -2,8 +2,7 @@
 #define WILK_H
 #include "Zwierze.h"
 
-
-class Wilk
+class Wilk:public Zwierze
 {
     public:
         Wilk();

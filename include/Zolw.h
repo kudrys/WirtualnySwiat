@@ -3,7 +3,7 @@
 #include "Zwierze.h"
 
 
-class Zolw
+class Zolw:public Zwierze
 {
     public:
         Zolw();

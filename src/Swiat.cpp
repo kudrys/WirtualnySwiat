@@ -46,6 +46,15 @@ void Swiat::losowanieXY(){
 //        cout<<endl;
 //    }
 }
+int Swiat::getXfromValue()
+{
+
+}
+
+int Swiat::getYfromValue()
+{
+
+}
 
 void Swiat::rysujSwiat(){
 
