@@ -14,6 +14,7 @@ class Lew: public Zwierze
     private:
         void akcja();
         void rozmnazanie();
+        void kolizja();
 };
 
 #endif // LEW_H

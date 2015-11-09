@@ -11,6 +11,8 @@ class Ciern:public Roslina
         char label = 'C';
         int sila = 2;
     private:
+        void akcja();
+        void kolizja();
 };
 
 #endif // CIERN_H

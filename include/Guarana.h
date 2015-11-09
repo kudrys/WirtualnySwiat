@@ -11,6 +11,8 @@ class Guarana:public Roslina
         char label = 'G';
         int sila = 0;
     private:
+        void akcja();
+        void kolizja();
 };
 
 #endif // GUARANA_H

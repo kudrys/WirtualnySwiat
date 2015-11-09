@@ -18,3 +18,7 @@ void Owca::rozmnazanie()
 {
 
 }
+void Owca::kolizja()
+{
+
+}

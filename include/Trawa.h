@@ -11,6 +11,8 @@ class Trawa:public Roslina
         char label = 'T';
         int sila = 0;
     private:
+        void akcja();
+        void kolizja();
 };
 
 #endif // TRAWA_H

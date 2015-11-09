@@ -9,9 +9,15 @@ Zolw::~Zolw(){
 }
 
 void Zolw::akcja(){
-
+/*
+W 75% przypadków nie zmienia swojego po³o¿enia.
+*/
 }
 
 void Zolw::rozmnazanie(){
 
+}
+void Zolw::kolizja()
+{
+//Odpiera ataki zwierz¹t o sile <5. Napastnik musi wróciæ na swoje poprzednie pole
 }

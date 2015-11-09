@@ -9,3 +9,12 @@ Trawa::~Trawa()
 {
     //dtor
 }
+void Trawa::akcja()
+{
+
+}
+
+void Trawa::kolizja()
+{
+
+}

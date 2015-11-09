@@ -14,6 +14,7 @@ class Owca:public Zwierze
     private:
         void akcja();
         void rozmnazanie();
+        void kolizja();
 };
 
 #endif // OWCA_H

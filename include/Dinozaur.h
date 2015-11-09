@@ -14,6 +14,7 @@ class Dinozaur:public Zwierze
     private:
         void akcja();
         void rozmnazanie();
+        void kolizja();
 };
 
 #endif // DINOZAUR_H

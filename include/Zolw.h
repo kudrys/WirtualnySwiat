@@ -15,6 +15,7 @@ class Zolw:public Zwierze
     private:
         void akcja();
         void rozmnazanie();
+        void kolizja();
 };
 
 #endif // ZOLW_H
