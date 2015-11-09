@@ -33,7 +33,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/Ciern.h" />
+		<Unit filename="include/Dinozaur.h" />
+		<Unit filename="include/Guarana.h" />
+		<Unit filename="include/Lew.h" />
 		<Unit filename="include/Organizm.h" />
+		<Unit filename="include/Owca.h" />
 		<Unit filename="include/Roslina.h" />
 		<Unit filename="include/Swiat.h" />
 		<Unit filename="include/Trawa.h" />
@@ -41,7 +46,12 @@
 		<Unit filename="include/Zolw.h" />
 		<Unit filename="include/Zwierze.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Ciern.cpp" />
+		<Unit filename="src/Dinozaur.cpp" />
+		<Unit filename="src/Guarana.cpp" />
+		<Unit filename="src/Lew.cpp" />
 		<Unit filename="src/Organizm.cpp" />
+		<Unit filename="src/Owca.cpp" />
 		<Unit filename="src/Roslina.cpp" />
 		<Unit filename="src/Swiat.cpp" />
 		<Unit filename="src/Trawa.cpp" />

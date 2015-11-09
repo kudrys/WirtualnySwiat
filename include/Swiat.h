@@ -8,8 +8,8 @@ class Swiat
         Swiat(int,int);
         virtual ~Swiat();
         void losowanieXY();
-        int getXfromValue();
-        int getYfromValue();
+        int getXfromValue(int);
+        int getYfromValue(int);
     protected:
         int wysokosc;   //y
         int szerokosc;  //x
@@ -18,6 +18,7 @@ class Swiat
     private:
         void rysujSwiat();
         void wykonajTure();
+        void wsadzZwierzaka(int, char);
 
 };
 
