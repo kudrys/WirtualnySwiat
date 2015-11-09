@@ -2,6 +2,9 @@
 #define ORGANIZM_H
 //#include "Swiat.h"
 
+/**
+ * base classs
+ */
 class Organizm
 {
     public:
