@@ -131,7 +131,6 @@ void Swiat::wsadzZwierzakaDoSwiata(int value, char zwierzakAscii)
     int y = getYfromValue(value);
     organizmyTab[x][y] = organizmWsadzany;
     organizmWsadzany->przypiszXY(x,y);
-    //dodajZwierzakaDoListy(organizmWsadzany);
 }
 
 void Swiat::dodajZwierzakaDoListy(Organizm * wsadzany)
@@ -147,7 +146,7 @@ void Swiat::dodajZwierzakaDoListy(Organizm * wsadzany)
     if (temp == 0)
         temp = wsadzany;
 }
-
+//dsdsds
 void Swiat::usunZwierzakaZListy()
 {
 
