@@ -1,7 +1,9 @@
 #include "Wilk.h"
 
 Wilk::Wilk(){
-    //ctor
+    label = 'W';
+    sila = 9;
+    inicjatywa = 5;
 }
 
 Wilk::~Wilk(){

@@ -2,7 +2,8 @@
 
 Guarana::Guarana()
 {
-    //ctor
+    char label = 'G';
+    int sila = 0;
 }
 
 Guarana::~Guarana()

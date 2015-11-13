@@ -2,7 +2,8 @@
 
 Ciern::Ciern()
 {
-    //ctor
+    label = 'C';
+    sila = 2;
 }
 
 Ciern::~Ciern()

@@ -8,9 +8,7 @@ class Lew: public Zwierze
         Lew();
         virtual ~Lew();
     protected:
-     int sila = 11;
-        int inicjatywa = 7;
-        char label = 'L';
+
     private:
         void akcja();
         void rozmnazanie();

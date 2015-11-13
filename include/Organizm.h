@@ -9,11 +9,15 @@ class Organizm
 {
     public:
         virtual ~Organizm();
+        int getInicjatywa();
+        Organizm * next = 0;
+        char label;
     protected:
         int x;
         int y;
         int sila;
         int inicjatywa;
+
 //Swiat *swiat;
         void akcja();
         void kolizja();

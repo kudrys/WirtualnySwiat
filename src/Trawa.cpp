@@ -2,7 +2,8 @@
 
 Trawa::Trawa()
 {
-    //ctor
+    char label = 'T';
+    int sila = 0;
 }
 
 Trawa::~Trawa()

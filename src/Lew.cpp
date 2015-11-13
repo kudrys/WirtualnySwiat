@@ -2,7 +2,9 @@
 
 Lew::Lew()
 {
-    //ctor
+    label = 'L';
+    sila = 11;
+    inicjatywa = 7;
 }
 
 Lew::~Lew()

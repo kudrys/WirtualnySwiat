@@ -9,9 +9,9 @@ class Zolw:public Zwierze
         Zolw();
         virtual ~Zolw();
     protected:
-        int sila = 2;
-        int inicjatywa = 1;
-        char label = 'Z';
+        int sila;
+        int inicjatywa;
+        char label;
     private:
         void akcja();
         void rozmnazanie();

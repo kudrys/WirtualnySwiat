@@ -8,8 +8,8 @@ class Ciern:public Roslina
         Ciern();
         virtual ~Ciern();
     protected:
-        char label = 'C';
-        int sila = 2;
+        char label;
+        int sila;
     private:
         void akcja();
         void kolizja();

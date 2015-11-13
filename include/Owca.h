@@ -8,9 +8,9 @@ class Owca:public Zwierze
         Owca();
         virtual ~Owca();
     protected:
-        int sila = 4;
-        int inicjatywa = 4;
-        char label = 'O';
+        int sila;
+        int inicjatywa;
+        char label;
     private:
         void akcja();
         void rozmnazanie();

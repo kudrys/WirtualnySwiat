@@ -8,8 +8,8 @@ class Trawa:public Roslina
         Trawa();
         virtual ~Trawa();
     protected:
-        char label = 'T';
-        int sila = 0;
+        char label;
+        int sila;
     private:
         void akcja();
         void kolizja();

@@ -10,15 +10,18 @@ class Swiat
         void losowanieXY();
         int getXfromValue(int);
         int getYfromValue(int);
+        Organizm * first;
+        void rysujSwiat();
+        void wykonajTure();
+        void wsadzZwierzakaDoSwiata(int, char);
+        void dodajZwierzakaDoListy(Organizm*);
+        void usunZwierzakaZListy();
     protected:
         int wysokosc;   //y
         int szerokosc;  //x
         Organizm *** organizmyTab;  //wskaznik na wskaznik (tablica tablic)
-
     private:
-        void rysujSwiat();
-        void wykonajTure();
-        void wsadzZwierzaka(int, char);
+
 
 };
 

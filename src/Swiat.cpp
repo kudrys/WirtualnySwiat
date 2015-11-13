@@ -5,24 +5,25 @@
 #include <iostream>
 #include "Lew.h"
 #include "Wilk.h"
+
 using namespace std;
 
-Swiat::Swiat(int wys , int szer){
+Swiat::Swiat(int szer , int wys){
     wysokosc = wys;
     szerokosc = szer;
+    first = 0;
 
-    // Create 2D array of pointers:
-    Organizm*** organizmyTab = new Organizm**[wysokosc];
+    organizmyTab = new Organizm**[wysokosc];
     for (int i = 0; i < wysokosc; ++i) {
       organizmyTab[i] = new Organizm*[szerokosc];
     }
 
-    // Null out the pointers contained in the array:
     for (int i = 0; i < wysokosc; ++i) {
       for (int j = 0; j < szerokosc; ++j) {
-        organizmyTab[i][j] = NULL;
+        organizmyTab[i][j] = 0;
       }
     }
+
 }
 
 Swiat::~Swiat(){
@@ -31,22 +32,32 @@ Swiat::~Swiat(){
 
 void Swiat::losowanieXY(){
     srand( time( 0 ));
-    int tabLosowychXY[szerokosc*wysokosc];
-    for(int i=0;i<szerokosc*wysokosc;i++){
+    int tabSize = szerokosc*wysokosc;
+    int iloscWylosowanych = (tabSize)/10;
+    int tabLosowychXY[tabSize];
+    int wylosowaneTab[iloscWylosowanych];
+
+    for(int i=0;i<tabSize;i++){
         tabLosowychXY[i]=i;
     }
-    for(int i=0;i<(szerokosc*wysokosc)/10;i++){
-        int temp = rand()%szerokosc*wysokosc-1;
-        int temp2 = tabLosowychXY[szerokosc*wysokosc-1-i];
-        tabLosowychXY[szerokosc*wysokosc-1-i] = tabLosowychXY[temp];
+    for(int i=0;i<iloscWylosowanych;i++){
+        int temp = rand()%tabSize-1;
+        int temp2 = tabLosowychXY[tabSize-1-i];
+        tabLosowychXY[tabSize-1-i] = tabLosowychXY[temp];
         tabLosowychXY[temp] = temp2;
+        wylosowaneTab[i]=tabLosowychXY[tabSize-1-i];
+        cout<<wylosowaneTab[i]<<endl;
+
+        wsadzZwierzakaDoSwiata(wylosowaneTab[i],'L');
     }
-    for(int i = 0; i < szerokosc; i++){
-        for(int j = 0; j < wysokosc; j++){
-            cout<<tabLosowychXY[i*wysokosc+j]<<" ";
-        }
-        cout<<endl;
-    }
+
+//rysowanie wylosowanych:
+//    for(int i = 0; i < szerokosc; i++){
+//        for(int j = 0; j < wysokosc; j++){
+//            cout<<tabLosowychXY[i*wysokosc+j]<<" ";
+//        }
+//        cout<<endl;
+//    }
 }
 
 int Swiat::getXfromValue(int value)
@@ -59,7 +70,7 @@ int Swiat::getYfromValue(int value)
     return value%szerokosc;
 }
 
-void Swiat::wsadzZwierzaka(int value, char zwierzakAscii)
+void Swiat::wsadzZwierzakaDoSwiata(int value, char zwierzakAscii)
 {
     Organizm * organizmWsadzany;
 
@@ -70,17 +81,66 @@ void Swiat::wsadzZwierzaka(int value, char zwierzakAscii)
             organizmWsadzany = new Lew();
             break;
         }
-
         case 'W':
         {
-            Wilk * w = new Wilk();
+            organizmWsadzany = new Wilk();
+            break;
+        }
+         case 'C':
+        {
+            organizmWsadzany = new Ciern();
+            break;
+        }
+         case 'D':
+        {
+            organizmWsadzany = new Dinozaur();
+            break;
+        }
+         case 'G':
+        {
+            organizmWsadzany = new Guarana();
+            break;
+        }
+         case 'O':
+        {
+            organizmWsadzany = new Owca();
+            break;
+        }
+         case 'T':
+        {
+            organizmWsadzany = new Trawa();
+            break;
+        }
+         case 'Z':
+        {
+            organizmWsadzany = new Zolw();
             break;
         }
         default:
         break;
     }
+    //dorobic casy
+    organizmyTab[getXfromValue(value)][getYfromValue(value)] = organizmWsadzany;
+    //dodajZwierzakaDoListy(organizmWsadzany);
+}
 
-    organizmyTab[getXfromValue(value)][getYfromValue(value)]=
+void Swiat::dodajZwierzakaDoListy(Organizm * wsadzany)
+{   Organizm * temp = first;
+    while(temp){
+        if(wsadzany->getInicjatywa()<temp->getInicjatywa()){
+            wsadzany->next = temp->next;
+            temp->next = wsadzany;
+            break;
+        }
+        temp = temp->next;
+    }
+    if (temp == 0)
+        temp = wsadzany;
+}
+
+void Swiat::usunZwierzakaZListy()
+{
+
 }
 
 
@@ -97,6 +157,18 @@ void Swiat::wsadzZwierzaka(int value, char zwierzakAscii)
 
 void Swiat::rysujSwiat(){
 
+    for(int i=0;i<wysokosc;i++){
+        for(int j=0;j<szerokosc;j++){
+                //cout<<"i: "<<i<<"  j: "<<j<<endl;
+                //cout<<organizmyTab[i][j];
+            if(organizmyTab[i][j]==0){
+                cout<<"*";
+            }else{
+                cout<<organizmyTab[i][j]->label;
+            }
+        }
+        cout<<endl;
+    }
 }
 
 void Swiat::wykonajTure(){
