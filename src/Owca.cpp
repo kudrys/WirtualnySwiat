@@ -2,9 +2,10 @@
 
 Owca::Owca()
 {
-    int sila = 4;
-    int inicjatywa = 4;
-    char label = 'O';
+    label = 'O';
+    sila = 4;
+    inicjatywa = 4;
+
 }
 
 Owca::~Owca()
