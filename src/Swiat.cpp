@@ -152,18 +152,6 @@ void Swiat::usunZwierzakaZListy()
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 void Swiat::rysujSwiat(){
 
     for(int i=0;i<wysokosc;i++){
@@ -177,6 +165,36 @@ void Swiat::rysujSwiat(){
             }
         }
         cout<<endl;
+    }
+}
+
+void Swiat::poruszenie(char kierunek, int x, int y)
+{
+    switch(kierunek){
+    case 'G':
+    {
+        organizmyTab[x][y]->przypiszXY(x,y+1);
+        break;
+    }
+    case 'D':
+    {
+        organizmyTab[x][y]->przypiszXY(x,y-1);
+        break;
+    }
+    case 'P':
+    {
+        organizmyTab[x][y]->przypiszXY(x+1,y);
+        break;
+    }
+    case 'L':
+    {
+        organizmyTab[x][y]->przypiszXY(x-1,y);
+        break;
+    }
+    default:
+        {
+
+        }
     }
 }
 
