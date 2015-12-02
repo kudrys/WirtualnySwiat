@@ -21,3 +21,11 @@ void Organizm::przypiszXY(int x, int y)
     this->x=x;
     this->y=y;
 }
+int Organizm::getX()
+{
+    return x;
+}
+int Organizm::getY()
+{
+    return y;
+}

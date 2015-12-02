@@ -22,8 +22,6 @@ class Swiat
         int szerokosc;  //x
         Organizm *** organizmyTab;  //wskaznik na wskaznik (tablica tablic)
     private:
-
-
 };
 
 #endif // SWIAT_H

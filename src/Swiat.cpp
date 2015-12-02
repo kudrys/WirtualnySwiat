@@ -170,15 +170,21 @@ void Swiat::rysujSwiat(){
 
 void Swiat::poruszenie(char kierunek, int x, int y)
 {
+    Organizm * aktualny = organizmyTab[y][x];
+
     switch(kierunek){
     case 'G':
     {
-        organizmyTab[x][y]->przypiszXY(x,y+1);
+        aktualny->przypiszXY(x,y-1);
+        organizmyTab[aktualny->getY()][aktualny->getX()] = aktualny;
+
         break;
     }
     case 'D':
     {
-        organizmyTab[x][y]->przypiszXY(x,y-1);
+        aktualny -> przypiszXY(x,y+1);
+        organizmyTab[aktualny->getY()][aktualny->getX()] = aktualny;
+
         break;
     }
     case 'P':
@@ -193,9 +199,10 @@ void Swiat::poruszenie(char kierunek, int x, int y)
     }
     default:
         {
-
         }
     }
+    organizmyTab[aktualny->getY()][aktualny->getX()] = aktualny;   //jakby cos sie zjebalo to zamienic mniejscami
+    organizmyTab[x][y] = 0;
 }
 
 void Swiat::wykonajTure(){

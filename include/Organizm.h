@@ -13,6 +13,8 @@ class Organizm
         Organizm * next = 0;
         char label;
         void przypiszXY(int, int);
+        int getX();
+        int getY();
     protected:
         int x;
         int y;
