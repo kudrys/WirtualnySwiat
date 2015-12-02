@@ -8,8 +8,7 @@ class Wilk:public Zwierze
         Wilk();
         virtual ~Wilk();
     protected:
-        int sila;
-        int inicjatywa;
+
     private:
         void akcja();
         void rozmnazanie();

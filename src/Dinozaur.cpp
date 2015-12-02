@@ -2,9 +2,9 @@
 
 Dinozaur::Dinozaur()
 {
-    int sila = 20;
-    int inicjatywa = 10;
-    char label = 'D';
+    sila = 20;
+    inicjatywa = 10;
+    label = 'D';
 }
 
 Dinozaur::~Dinozaur()

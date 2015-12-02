@@ -16,6 +16,7 @@ class Swiat
         void wsadzZwierzakaDoSwiata(int, char);
         void dodajZwierzakaDoListy(Organizm*);
         void usunZwierzakaZListy();
+        void poruszenie(char,int,int);
     protected:
         int wysokosc;   //y
         int szerokosc;  //x

@@ -12,6 +12,7 @@ class Organizm
         int getInicjatywa();
         Organizm * next = 0;
         char label;
+        void przypiszXY(int, int);
     protected:
         int x;
         int y;

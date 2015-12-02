@@ -8,9 +8,7 @@ class Dinozaur:public Zwierze
         Dinozaur();
         virtual ~Dinozaur();
     protected:
-        int sila;
-        int inicjatywa;
-        char label;
+
     private:
         void akcja();
         void rozmnazanie();

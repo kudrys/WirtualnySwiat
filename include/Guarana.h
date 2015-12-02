@@ -8,8 +8,7 @@ class Guarana:public Roslina
         Guarana();
         virtual ~Guarana();
     protected:
-        char label;
-        int sila;
+
     private:
         void akcja();
         void kolizja();

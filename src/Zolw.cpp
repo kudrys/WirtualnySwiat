@@ -1,9 +1,9 @@
 #include "Zolw.h"
 
 Zolw::Zolw(){
-    int sila = 2;
-    int inicjatywa = 1;
-    char label = 'Z';
+    sila = 2;
+    inicjatywa = 1;
+    label = 'Z';
 }
 
 Zolw::~Zolw(){

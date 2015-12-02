@@ -5,6 +5,12 @@
 #include <iostream>
 #include "Lew.h"
 #include "Wilk.h"
+#include "Ciern.h"
+#include "Dinozaur.h"
+#include "Guarana.h"
+#include "Owca.h"
+#include "Trawa.h"
+#include "Zolw.h"
 
 using namespace std;
 
@@ -36,6 +42,7 @@ void Swiat::losowanieXY(){
     int iloscWylosowanych = (tabSize)/10;
     int tabLosowychXY[tabSize];
     int wylosowaneTab[iloscWylosowanych];
+    char zwierzakiDoWylosowania[]="CDGLOTWZ";
 
     for(int i=0;i<tabSize;i++){
         tabLosowychXY[i]=i;
@@ -48,7 +55,8 @@ void Swiat::losowanieXY(){
         wylosowaneTab[i]=tabLosowychXY[tabSize-1-i];
         cout<<wylosowaneTab[i]<<endl;
 
-        wsadzZwierzakaDoSwiata(wylosowaneTab[i],'L');
+        int losIndex = rand()%8;
+        wsadzZwierzakaDoSwiata(wylosowaneTab[i],zwierzakiDoWylosowania[losIndex]);
     }
 
 //rysowanie wylosowanych:
@@ -119,9 +127,10 @@ void Swiat::wsadzZwierzakaDoSwiata(int value, char zwierzakAscii)
         default:
         break;
     }
-    //dorobic casy
-    organizmyTab[getXfromValue(value)][getYfromValue(value)] = organizmWsadzany;
-    //dodajZwierzakaDoListy(organizmWsadzany);
+    int x = getXfromValue(value);
+    int y = getYfromValue(value);
+    organizmyTab[x][y] = organizmWsadzany;
+    organizmWsadzany->przypiszXY(x,y);
 }
 
 void Swiat::dodajZwierzakaDoListy(Organizm * wsadzany)
@@ -137,23 +146,11 @@ void Swiat::dodajZwierzakaDoListy(Organizm * wsadzany)
     if (temp == 0)
         temp = wsadzany;
 }
-
+//dsdsds
 void Swiat::usunZwierzakaZListy()
 {
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 void Swiat::rysujSwiat(){
 
@@ -168,6 +165,36 @@ void Swiat::rysujSwiat(){
             }
         }
         cout<<endl;
+    }
+}
+
+void Swiat::poruszenie(char kierunek, int x, int y)
+{
+    switch(kierunek){
+    case 'G':
+    {
+        organizmyTab[x][y]->przypiszXY(x,y+1);
+        break;
+    }
+    case 'D':
+    {
+        organizmyTab[x][y]->przypiszXY(x,y-1);
+        break;
+    }
+    case 'P':
+    {
+        organizmyTab[x][y]->przypiszXY(x+1,y);
+        break;
+    }
+    case 'L':
+    {
+        organizmyTab[x][y]->przypiszXY(x-1,y);
+        break;
+    }
+    default:
+        {
+
+        }
     }
 }
 

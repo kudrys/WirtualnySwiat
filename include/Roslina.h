@@ -1,8 +1,8 @@
 #ifndef ROSLINA_H
 #define ROSLINA_H
-#include "Roslina.h"
+#include "Organizm.h"
 
-class Roslina
+class Roslina:public Organizm
 {
     public:
         Roslina();
