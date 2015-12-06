@@ -1,7 +1,7 @@
 #include "Roslina.h"
 
 Roslina::Roslina(){
-    //ctor
+    OrganizmMark ='R';
 }
 
 Roslina::~Roslina(){

@@ -171,38 +171,38 @@ void Swiat::rysujSwiat(){
 void Swiat::poruszenie(char kierunek, int x, int y)
 {
     Organizm * aktualny = organizmyTab[y][x];
+    int newX = x;
+    int newY = y;
 
     switch(kierunek){
-    case 'G':
-    {
-        aktualny->przypiszXY(x,y-1);
-        organizmyTab[aktualny->getY()][aktualny->getX()] = aktualny;
-
-        break;
+        case 'G':{
+            newY--;
+            break;
+        }
+        case 'D':{
+            newY++;
+            break;
+        }
+        case 'P':{
+            newX++;
+            break;
+        }
+        case 'L':{
+            newX--;
+            break;
+        }
+        default: {}
     }
-    case 'D':
-    {
-        aktualny -> przypiszXY(x,y+1);
-        organizmyTab[aktualny->getY()][aktualny->getX()] = aktualny;
-
-        break;
-    }
-    case 'P':
-    {
-        organizmyTab[x][y]->przypiszXY(x+1,y);
-        break;
-    }
-    case 'L':
-    {
-        organizmyTab[x][y]->przypiszXY(x-1,y);
-        break;
-    }
-    default:
-        {
+    if(newX<szerokosc && newY<wysokosc && newX>=0 && newY>=0){
+        Organizm * napotkany = organizmyTab[newX][newY];
+        if(napotkany){
+            //TODO akcja
+        }else{
+            organizmyTab[x][y]->przypiszXY(newX, newY);
+            organizmyTab[aktualny->getY()][aktualny->getX()] = aktualny;   //jakby cos sie zjebalo to zamienic mniejscami
+            organizmyTab[x][y] = 0;
         }
     }
-    organizmyTab[aktualny->getY()][aktualny->getX()] = aktualny;   //jakby cos sie zjebalo to zamienic mniejscami
-    organizmyTab[x][y] = 0;
 }
 
 void Swiat::zdecydujJakieDzialanie(Organizm * stworzenie, int xGoTO, int yGoTO){ //GoTO wspolrzedne gdzie stworzenie chce isc

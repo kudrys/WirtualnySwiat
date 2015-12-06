@@ -2,7 +2,7 @@
 
 
 Zwierze::Zwierze(){
-
+    OrganizmMark ='Z';
 }
 
 Zwierze::~Zwierze(){
