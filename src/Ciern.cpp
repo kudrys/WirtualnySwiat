@@ -4,6 +4,7 @@ Ciern::Ciern()
 {
     label = 'C';
     sila = 2;
+    OrganizmMark ='R';
 }
 
 Ciern::~Ciern()

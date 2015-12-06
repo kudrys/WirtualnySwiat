@@ -205,6 +205,17 @@ void Swiat::poruszenie(char kierunek, int x, int y)
     organizmyTab[x][y] = 0;
 }
 
+void Swiat::zdecydujJakieDzialanie(Organizm * stworzenie, int xGoTO, int yGoTO){ //GoTO wspolrzedne gdzie stworzenie chce isc
+
+    if(organizmyTab[yGoTO][xGoTO] != 0){
+        if (stworzenie->label == organizmyTab[yGoTO][xGoTO]->label){
+            stworzenie->rozmnazanie();
+        }else{
+            stworzenie->kolizja();
+        }
+    }
+}
+
 void Swiat::wykonajTure(){
 
 }

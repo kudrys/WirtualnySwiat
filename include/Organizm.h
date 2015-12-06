@@ -15,15 +15,19 @@ class Organizm
         void przypiszXY(int, int);
         int getX();
         int getY();
+        char getOrganizmMark();
+        void akcja();
+        void kolizja();
+        void rozmnazanie();
     protected:
+        char OrganizmMark;
         int x;
         int y;
         int sila;
         int inicjatywa;
 
 //Swiat *swiat;
-        void akcja();
-        void kolizja();
+
         void rysowanie();
     private:
 

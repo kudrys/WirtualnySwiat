@@ -4,6 +4,7 @@ Trawa::Trawa()
 {
     label = 'T';
     sila = 0;
+    OrganizmMark ='R';
 }
 
 Trawa::~Trawa()

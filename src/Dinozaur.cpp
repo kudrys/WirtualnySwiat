@@ -5,6 +5,7 @@ Dinozaur::Dinozaur()
     sila = 20;
     inicjatywa = 10;
     label = 'D';
+    OrganizmMark ='Z';
 }
 
 Dinozaur::~Dinozaur()

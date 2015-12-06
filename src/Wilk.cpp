@@ -2,6 +2,7 @@
 
 Wilk::Wilk(){
     label = 'W';
+    OrganizmMark ='Z';
     sila = 9;
     inicjatywa = 5;
 }

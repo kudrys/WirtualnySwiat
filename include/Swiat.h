@@ -5,7 +5,7 @@
 class Swiat
 {
     public:
-        Swiat(int,int);
+        Swiat(int, int);
         virtual ~Swiat();
         void losowanieXY();
         int getXfromValue(int);
@@ -16,7 +16,8 @@ class Swiat
         void wsadzZwierzakaDoSwiata(int, char);
         void dodajZwierzakaDoListy(Organizm*);
         void usunZwierzakaZListy();
-        void poruszenie(char,int,int);
+        void poruszenie(char, int, int);
+        void zdecydujJakieDzialanie(Organizm*, int, int);
     protected:
         int wysokosc;   //y
         int szerokosc;  //x

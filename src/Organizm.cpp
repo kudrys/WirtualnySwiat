@@ -13,6 +13,10 @@ void Organizm::kolizja(){
 
 }
 
+void Organizm::rozmnazanie(){
+
+}
+
 int Organizm::getInicjatywa(){
     return inicjatywa;
 }
@@ -28,4 +32,9 @@ int Organizm::getX()
 int Organizm::getY()
 {
     return y;
+}
+
+char Organizm::getOrganizmMark()
+{
+    return OrganizmMark;
 }
