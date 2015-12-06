@@ -173,6 +173,7 @@ void Swiat::poruszenie(char kierunek, int x, int y)
     Organizm * aktualny = organizmyTab[y][x];
     int newX = x;
     int newY = y;
+    //char kierunek = aktualny->akcja();
 
     switch(kierunek){
         case 'G':{
@@ -196,7 +197,14 @@ void Swiat::poruszenie(char kierunek, int x, int y)
     if(newX<szerokosc && newY<wysokosc && newX>=0 && newY>=0){
         Organizm * napotkany = organizmyTab[newX][newY];
         if(napotkany){
-            //TODO akcja
+        /*
+            if napotkany->label == aktualny->label{
+                ruchaj();
+            }
+            bool atak = napotkany->kolizja(aktualny);
+            if (atak)
+                int sukces = aktualny->atakuj(napotkany);
+          */
         }else{
             organizmyTab[x][y]->przypiszXY(newX, newY);
             organizmyTab[aktualny->getY()][aktualny->getX()] = aktualny;   //jakby cos sie zjebalo to zamienic mniejscami
