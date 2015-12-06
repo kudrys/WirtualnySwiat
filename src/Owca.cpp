@@ -5,7 +5,7 @@ Owca::Owca()
     label = 'O';
     sila = 4;
     inicjatywa = 4;
-    OrganizmMark ='Z';
+
 
 }
 

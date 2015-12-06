@@ -4,7 +4,7 @@ Guarana::Guarana()
 {
     label = 'G';
     sila = 0;
-    OrganizmMark ='R';
+
 }
 
 Guarana::~Guarana()

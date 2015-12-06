@@ -7,6 +7,7 @@ class Roslina:public Organizm
     public:
         Roslina();
         virtual ~Roslina();
+        OrganizmMark ='R';
     protected:
         int inicjatywa = 0;
         void akcja();

@@ -4,7 +4,7 @@ Zolw::Zolw(){
     sila = 2;
     inicjatywa = 1;
     label = 'Z';
-    OrganizmMark ='Z';
+
 }
 
 Zolw::~Zolw(){

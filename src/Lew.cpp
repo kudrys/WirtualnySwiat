@@ -3,7 +3,7 @@
 Lew::Lew()
 {
     label = 'L';
-    OrganizmMark ='Z';
+
     sila = 11;
     inicjatywa = 7;
 }
