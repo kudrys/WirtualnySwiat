@@ -18,6 +18,7 @@ class Swiat
         void usunZwierzakaZListy();
         void poruszenie(char, int, int);
         int wylosojWolnePole(int,int);
+        int wylosojPoleDoOkola(int, int);
         int getSzeroskosc();
         int getWysokosc();
     protected:
