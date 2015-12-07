@@ -4,23 +4,15 @@ using namespace std;
 
 int main(){
     cout<<"RYSZARD KUDUK 143271\n";
-    Swiat nowy(5,17);
-    nowy.losowanieXY();
-    cout<<"\n";
-
-    //nowy.wsadzZwierzakaDoSwiata(12,'W');
-    //nowy.wsadzZwierzakaDoSwiata(14,'L');
-    nowy.rysujSwiat();
-    cout<<endl;
+    Swiat nowy(5,8);
+    nowy.wsadzZwierzakaDoSwiata(1,'W');
+    nowy.wsadzZwierzakaDoSwiata(6,'L');
+    nowy.wsadzZwierzakaDoSwiata(11,'T');
+    nowy.wsadzZwierzakaDoSwiata(16,'Z');
     nowy.wsadzZwierzakaDoSwiata(7,'L');
-    nowy.wsadzZwierzakaDoSwiata(0,'L');
+    nowy.wsadzZwierzakaDoSwiata(12,'C');
+    cout<<nowy.wylosojWolnePole(1,2)<<endl;
     nowy.rysujSwiat();
-    cout<<endl;
-    nowy.poruszenie('D',0,0);
-    cout<<endl;
-    nowy.rysujSwiat();
-//    nowy.poruszenie('G',3,14);
-//    nowy.rysujSwiat();
-//    nowy.poruszenie('G',3,14);
-//    nowy.rysujSwiat();
+
+
 }

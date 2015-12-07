@@ -78,6 +78,16 @@ int Swiat::getYfromValue(int value)
     return value%szerokosc;
 }
 
+int Swiat::getSzeroskosc()
+{
+    return szerokosc;
+}
+
+int Swiat::getWysokosc()
+{
+    return wysokosc;
+}
+
 void Swiat::wsadzZwierzakaDoSwiata(int value, char zwierzakAscii)
 {
     Organizm * organizmWsadzany;
@@ -129,7 +139,7 @@ void Swiat::wsadzZwierzakaDoSwiata(int value, char zwierzakAscii)
     }
     int x = getXfromValue(value);
     int y = getYfromValue(value);
-    organizmyTab[x][y] = organizmWsadzany;
+    organizmyTab[y][x] = organizmWsadzany;
     organizmWsadzany->przypiszXY(x,y);
 }
 
@@ -156,8 +166,6 @@ void Swiat::rysujSwiat(){
 
     for(int i=0;i<wysokosc;i++){
         for(int j=0;j<szerokosc;j++){
-                //cout<<"i: "<<i<<"  j: "<<j<<endl;
-                //cout<<organizmyTab[i][j];
             if(organizmyTab[i][j]==0){
                 cout<<"*";
             }else{
@@ -213,17 +221,37 @@ void Swiat::poruszenie(char kierunek, int x, int y)
     }
 }
 
-void Swiat::zdecydujJakieDzialanie(Organizm * stworzenie, int xGoTO, int yGoTO){ //GoTO wspolrzedne gdzie stworzenie chce isc
+int Swiat::wylosojWolnePole(int x, int y){ //GoTO wspolrzedne gdzie stworzenie chce isc
+    int TempX[4];
+    int TempY[4];
+    srand( time( NULL ));
 
-    if(organizmyTab[yGoTO][xGoTO] != 0){
-        if (stworzenie->label == organizmyTab[yGoTO][xGoTO]->label){
-            stworzenie->rozmnazanie();
-        }else{
-            stworzenie->kolizja();
+    int kierunkiX[4]={x,x+1,x,x-1};
+    int kierunkiY[4]={y-1,y,y+1,y};
+
+    for(int i=0; i<4; i++){
+        if(kierunkiX[i]<szerokosc && kierunkiY[i]<wysokosc && kierunkiX[i]>=0 && kierunkiY[i]>=0){
+            if(organizmyTab[kierunkiY[i]][kierunkiX[i]]==0){
+                TempX[i] = kierunkiX[i];
+                TempY[i] = kierunkiY[i];
+            }else{
+                TempX[i] = szerokosc*wysokosc+1;
+                TempY[i] = szerokosc*wysokosc+1;
+            }
         }
     }
-}
+    int r=rand()% 4;
+    int value=TempX[r];
 
+    while(value == szerokosc*wysokosc+1){
+        r = rand()% 4;
+        value = TempX[r];
+    }
+
+    //cout<<"wynik: "<<TempX[r]*szerokosc+TempY[r]<<endl;
+    return TempX[r]*szerokosc+TempY[r];
+
+}
 void Swiat::wykonajTure(){
 
 }
