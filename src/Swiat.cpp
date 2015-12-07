@@ -221,7 +221,7 @@ void Swiat::poruszenie(char kierunek, int x, int y)
     }
 }
 
-int Swiat::wylosojWolnePole(int x, int y){ //GoTO wspolrzedne gdzie stworzenie chce isc
+int Swiat::wylosojWolnePole(int x, int y){
     int TempX[4];
     int TempY[4];
     srand( time( NULL ));
@@ -235,15 +235,15 @@ int Swiat::wylosojWolnePole(int x, int y){ //GoTO wspolrzedne gdzie stworzenie c
                 TempX[i] = kierunkiX[i];
                 TempY[i] = kierunkiY[i];
             }else{
-                TempX[i] = szerokosc*wysokosc+1;
-                TempY[i] = szerokosc*wysokosc+1;
+                TempX[i] = -1;
+                TempY[i] = -1;
             }
         }
     }
     int r=rand()% 4;
     int value=TempX[r];
 
-    while(value == szerokosc*wysokosc+1){
+    while(value == -1){
         r = rand()% 4;
         value = TempX[r];
     }
