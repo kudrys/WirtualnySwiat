@@ -11,7 +11,7 @@ int main(){
     nowy.wsadzZwierzakaDoSwiata(16,'Z');
     nowy.wsadzZwierzakaDoSwiata(7,'L');
     nowy.wsadzZwierzakaDoSwiata(12,'C');
-    cout<<"tylko puste: "<<nowy.wylosojWolnePole(1,2)<<endl;
-    cout<<"byle jakie: "<<nowy.wylosojPoleDoOkola(1,2)<<endl;
+    cout<<"tylko puste: "<<nowy.wylosujWolnePole(1,2)<<endl;
+    cout<<"byle jakie: "<<nowy.wylosujPoleDoOkola(1,2)<<endl;
     nowy.rysujSwiat();
 }

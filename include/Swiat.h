@@ -17,8 +17,9 @@ class Swiat
         void dodajZwierzakaDoListy(Organizm*);
         void usunZwierzakaZListy();
         void poruszenie(char, int, int);
-        int wylosojWolnePole(int,int);
-        int wylosojPoleDoOkola(int, int);
+        int wylosujWolnePole(int,int);
+        int wylosujPole(int,int,bool);
+        int wylosujPoleDoOkola(int, int);
         int getSzeroskosc();
         int getWysokosc();
     protected:
