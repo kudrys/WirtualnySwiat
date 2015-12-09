@@ -11,15 +11,17 @@ class Organizm
         virtual ~Organizm();
         int getInicjatywa();
         Organizm * next = 0;
-        char label;
+
         void przypiszXY(int, int);
         int getX();
         int getY();
         char getOrganizmMark();
+        char getLabel();
         void akcja();
         void kolizja();
         void rozmnazanie();
     protected:
+        char label;
         char OrganizmMark;
         int x;
         int y;

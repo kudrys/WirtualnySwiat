@@ -14,6 +14,4 @@ int main(){
     cout<<"tylko puste: "<<nowy.wylosojWolnePole(1,2)<<endl;
     cout<<"byle jakie: "<<nowy.wylosojPoleDoOkola(1,2)<<endl;
     nowy.rysujSwiat();
-
-
 }

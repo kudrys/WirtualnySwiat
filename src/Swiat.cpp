@@ -169,7 +169,7 @@ void Swiat::rysujSwiat(){
             if(organizmyTab[i][j]==0){
                 cout<<"*";
             }else{
-                cout<<organizmyTab[i][j]->label;
+                cout<<organizmyTab[i][j]->getLabel();
             }
         }
         cout<<endl;
@@ -243,11 +243,9 @@ int Swiat::wylosojPoleDoOkola(int x, int y)
         r = rand()% 4;
         value = TempX[r];
     }
-
     //cout<<"wynik: "<<TempX[r]*szerokosc+TempY[r]<<endl;
     return TempX[r]*szerokosc+TempY[r];
 }
-
 
 int Swiat::wylosojWolnePole(int x, int y){
     int TempX[4];
