@@ -18,7 +18,9 @@ void Guarana::akcja()
 }
 
 
-void Guarana::kolizja()
+int Guarana::kolizja(Organizm * attacking)
 {
-    //Zwiêksza si³ê zwierzêcia, które zjad³o tê roœlinê, o 3.
+    //Zwiï¿½ksza siï¿½ï¿½ zwierzï¿½cia, ktï¿½re zjadï¿½o tï¿½ roï¿½linï¿½, o 3.
+    attacking->sila=attacking->sila+3;
+    return whoDied(attacking);
 }

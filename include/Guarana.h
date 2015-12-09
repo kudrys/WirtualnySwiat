@@ -11,7 +11,7 @@ class Guarana:public Roslina
 
     private:
         void akcja();
-        void kolizja();
+        int kolizja(Organizm *);
 };
 
 #endif // GUARANA_H

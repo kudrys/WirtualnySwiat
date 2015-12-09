@@ -10,10 +10,7 @@ class Lew: public Zwierze
     protected:
 
     private:
-        bool atak(Organizm);
-        void rozmnazanie();
-        void akcja();
-        bool kolizja();
+        int kolizja(Organizm *);
 };
 
 #endif // LEW_H

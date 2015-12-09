@@ -12,28 +12,13 @@ Lew::~Lew()
 {
     //dtor
 }
-bool Lew::atak(Organizm napotkany)
-{
-    bool isAlive;
-    if(napotkany.getLabel()==this->label){
-        rozmnazanie();
-        isAlive=1;
-    }else{
-        return kolizja();
-    }
-    return isAlive;
-}
 
-void Lew::akcja()
+int Lew::kolizja(Organizm * attacking)
 {
+//Krï¿½l zwierzï¿½t: ï¿½adne zwierzï¿½ o sile < 5 nie oï¿½mieli siï¿½ wejï¿½ï¿½ na pole zajmowane przez lwa
 
-}
-void Lew::rozmnazanie()
-{
-
-}
-
-bool Lew::kolizja()
-{
-//Król zwierz¹t: ¿adne zwierzê o sile < 5 nie oœmieli siê wejœæ na pole zajmowane przez lwa
+    if(attacking->sila<5)
+        return 3;
+    else
+        return whoDied(attacking);
 }

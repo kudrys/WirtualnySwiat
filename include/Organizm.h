@@ -18,14 +18,15 @@ class Organizm
         char getOrganizmMark();
         char getLabel();
         void akcja();
-        void kolizja();
+        int kolizja(Organizm *);
+        int whoDied(Organizm *);
         void rozmnazanie();
+        int sila;
     protected:
         char label;
         char OrganizmMark;
         int x;
         int y;
-        int sila;
         int inicjatywa;
 
 //Swiat *swiat;

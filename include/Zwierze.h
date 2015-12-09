@@ -7,6 +7,7 @@ class Zwierze:public Organizm
     public:
         Zwierze();
         virtual ~Zwierze();
+        int atak(Organizm *);
     protected:
         int sila;
         int inicjatywa;

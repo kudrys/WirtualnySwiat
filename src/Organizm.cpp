@@ -6,9 +6,25 @@ Organizm::~Organizm(){
 void Organizm::akcja(){
 
 }
-void Organizm::kolizja(){
-
+int Organizm::kolizja(Organizm * attacking){
+    return whoDied(attacking);
 }
+
+/**
+ *
+ *
+ */
+int Organizm::whoDied(Organizm * attacking){
+    int defAlive = 1;
+    int attAlive = 1;
+    if (this->sila <= attacking->sila){
+        defAlive = 0;
+    }else{
+        attAlive = 0;
+    }
+    return defAlive*2+attAlive;
+}
+
 void Organizm::rozmnazanie(){
 
 }

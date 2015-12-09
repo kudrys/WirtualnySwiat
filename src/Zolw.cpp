@@ -13,14 +13,16 @@ Zolw::~Zolw(){
 
 void Zolw::akcja(){
 /*
-W 75% przypadków nie zmienia swojego po³o¿enia.
+W 75% przypadkï¿½w nie zmienia swojego poï¿½oï¿½enia.
 */
 }
 
-void Zolw::rozmnazanie(){
 
-}
-void Zolw::kolizja()
+int Zolw::kolizja(Organizm * attacking)
 {
-//Odpiera ataki zwierz¹t o sile <5. Napastnik musi wróciæ na swoje poprzednie pole
+//Odpiera ataki zwierzï¿½t o sile <5. Napastnik musi wrï¿½ciï¿½ na swoje poprzednie pole
+    if(attacking->sila<5)
+        return 3;
+    else
+        return whoDied(attacking);
 }
