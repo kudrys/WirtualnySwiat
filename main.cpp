@@ -1,7 +1,14 @@
 #include <iostream>
 #include "Swiat.h"
 using namespace std;
-
+//0 - *****
+//1 - WLTZ*
+//2 - *LC**
+//3 - *****
+//4 - *****
+//5 - *****
+//6 - *****
+//7 - *****
 int main(){
     cout<<"RYSZARD KUDUK 143271\n";
     Swiat nowy(5,8);
@@ -11,7 +18,15 @@ int main(){
     nowy.wsadzZwierzakaDoSwiata(16,'Z');
     nowy.wsadzZwierzakaDoSwiata(7,'L');
     nowy.wsadzZwierzakaDoSwiata(12,'C');
-    cout<<"tylko puste: "<<nowy.wylosujWolnePole(1,2)<<endl;
-    cout<<"byle jakie: "<<nowy.wylosujPoleDoOkola(1,2)<<endl;
+
+    nowy.rysujSwiat();
+    cout<<endl;
+    nowy.tura(nowy.organizmyTab[2][1]);   //do organizmyTab trzeba podawac odwrotnie X i Y, chuj wie czemu
+    cout<<endl<<"----WYNIK---"<<endl;
     nowy.rysujSwiat();
 }
+
+
+// ROZSIEWANIE TRAWY WYDAJE SIE DZIALAC, TESTUJEMY DALEJ
+// RUCHAJA SIE LWY
+// PROBLEM Z PORUSZANIEM DO NULLA, LEW NIE CHCE DO NULLA (LEW ZNIKA)

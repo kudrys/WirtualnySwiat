@@ -185,41 +185,36 @@ void Swiat::poruszenie(char kierunek, int x, int y)
 
     switch(kierunek){
         case 'G':{
+            cout<<"poruszenie gora";
             newY--;
             break;
         }
         case 'D':{
+            cout<<"poruszenie dol";
             newY++;
             break;
         }
         case 'P':{
+            cout<<"poruszenie prawo";
             newX++;
             break;
         }
         case 'L':{
+            cout<<"poruszenie lewo";
             newX--;
             break;
         }
         default: {}
     }
     if(newX<szerokosc && newY<wysokosc && newX>=0 && newY>=0){
-        Organizm * napotkany = organizmyTab[newX][newY];
-        if(napotkany){
-        /*
-            if napotkany->label == aktualny->label{
-                ruchaj();
-            }
-            bool atak = napotkany->kolizja(aktualny);
-            if (atak)
-                int sukces = aktualny->atakuj(napotkany);
-          */
-        }else{
-            organizmyTab[x][y]->przypiszXY(newX, newY);
-            organizmyTab[aktualny->getY()][aktualny->getX()] = aktualny;   //jakby cos sie zjebalo to zamienic mniejscami
-            organizmyTab[x][y] = 0;
-        }
+        organizmyTab[newY][newX] = organizmyTab[y][x];
+        organizmyTab[newY][newX]->przypiszXY(newX, newY);
+        organizmyTab[y][x]=0;
+//        aktualny = organizmyTab[aktualny->getY()][aktualny->getX()];   //jakby cos sie zjebalo to zamienic mniejscami
+//        organizmyTab[x][y] = 0;
     }
 }
+
 
 int Swiat::wylosujPoleDoOkola(int x, int y){
     wylosujPole(x,y,false);
@@ -260,9 +255,88 @@ int Swiat::wylosujPole(int x, int y, bool mustBeFree){
     return TempX[r]*szerokosc+TempY[r];
 
 }
-void Swiat::tura(Organizm * aktualny){
 
+char Swiat::coToZaKierunek(int x, int y, int newx, int newy){
+    //1-w lewo, 2-w dol, 3-w prawo, 4-w gora
+    int kierunkiX[4]={x,x+1,x,x-1};
+    int kierunkiY[4]={y-1,y,y+1,y};
+    int index;
+    for(int i=0; i<=3; i++){
+        if(newx==kierunkiX[i]&&newy==kierunkiY[i]){
+            index = i;
+            break;
+        }
+    }
+    if(index==0){
+        cout<<"index: "<<index<<endl;
+        return 'G';
+    }
+    if(index==1){
+        cout<<"index: "<<index<<endl;
+        return 'P';
+    }
+    if(index==2){
+        cout<<"index: "<<index<<endl;
+        return 'D';
+    }
+    if(index==3){
+        cout<<"index: "<<index<<endl;
+        return 'L';
+    }
+    cout<<"kurwa mac";
 }
+
+void Swiat::tura(Organizm * aktualny){
+    int aktX = aktualny->getX();
+    int aktY = aktualny->getY();
+    int value = wylosujPoleDoOkola(aktX,aktY);
+
+    int napotkanyX = getXfromValue(value);
+    int napotkanyY = getYfromValue(value);
+    Organizm * napotkany = organizmyTab[napotkanyY][napotkanyX];
+
+    cout<<"Aktualny: "<<aktualny->getLabel()<<", ("<<aktX<<";"<<aktY<<")"<<endl;
+    cout<<"wylosowane pole: "<<value<<endl;
+
+    //roslina
+    if(aktualny->akcja(napotkany)==1){
+        cout<<"//roslina"<<endl;
+        int value2 = wylosujWolnePole(aktX,aktY);
+        napotkanyX = getXfromValue(value2);
+        napotkanyY = getYfromValue(value2);
+        wsadzZwierzakaDoSwiata(value2, aktualny->getLabel());
+    }
+    //poruszanie
+    if(aktualny->getOrganizmMark()=='Z'&&aktualny->akcja(napotkany)==2){
+            cout<<"* kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
+            cout<<"napotX:"<<napotkanyX<<" napotY:"<<napotkanyY<<endl;
+            poruszenie(coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY),aktX,aktY);
+    }
+    //rozmnazanie
+    if(aktualny->akcja(napotkany)==3){
+        cout<<"//ruchanie"<<endl;
+        int value2 = wylosujWolnePole(aktX,aktY);
+        napotkanyX = getXfromValue(value2);
+        napotkanyY = getYfromValue(value2);
+        wsadzZwierzakaDoSwiata(value2, aktualny->getLabel());
+    }
+    //kolizja
+    if(aktualny->akcja(napotkany)==4){
+            if(napotkany->kolizja(aktualny)==2){
+                cout<<"** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
+                cout<<"//aktualny przegrywa! =NULL"<<endl;
+                organizmyTab[aktY][aktX]=0;
+            }
+            if(napotkany->kolizja(aktualny)==1){
+                cout<<"*** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
+                cout<<"//aktualny wygrywa! napotkany zjedzony =NULL"<<endl;
+
+                organizmyTab[napotkanyY][napotkanyX]=0;cout<<"napotX:"<<napotkanyX<<" napotY:"<<napotkanyY<<endl;
+                poruszenie(coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY),aktX,aktY);
+            }
+    }
+}
+
 
 void Swiat::runda(){
 

@@ -24,11 +24,13 @@ class Swiat
         int wylosujPole(int,int,bool);
         int wylosujPoleDoOkola(int, int);
         void tura(Organizm*);
+        char coToZaKierunek(int,int,int,int);
         void runda();
+        Organizm *** organizmyTab;
     protected:
         int wysokosc;   //y
         int szerokosc;  //x
-        Organizm *** organizmyTab;  //wskaznik na wskaznik (tablica tablic)
+          //wskaznik na wskaznik (tablica tablic)
     private:
 };
 

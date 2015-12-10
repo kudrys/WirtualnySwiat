@@ -1,27 +1,34 @@
 #include "Organizm.h"
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
+#include <iostream>
+using namespace std;
 
 Organizm::~Organizm(){
     szansa = 100;
 }
 
-/*
+/**
 * flag 1 - organizm to roslina
-* flag 2 - organizm to NULL
+* flag 2 - napotkany to NULL
 * flag 3 - te same organizmy, rozmnazanie
+* flag 4 - kolizja
 */
 int Organizm::akcja(Organizm * napotkany){
     if(szansaNaSukces()){
-        if(OrganizmMark=='R'){
+        if(this->OrganizmMark=='R'){
+            cout<<"organizm to roslina"<<endl;
             return 1;
         }
-        if(this==0){
+        if(napotkany==0){
+            cout<<"napotkany to null"<<endl;
             return 2;
         }
-        if(label==napotkany->getLabel()){
+        if(this->label==napotkany->getLabel()){
+            cout<<"Labele sa takie same"<<endl;
             return 3;
         }
+        return 4;
     }
 }
 

@@ -4,7 +4,7 @@ Trawa::Trawa()
 {
     label = 'T';
     sila = 0;
-    szansa = 10;
+    szansa = 100;
 }
 
 Trawa::~Trawa()
