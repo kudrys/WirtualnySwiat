@@ -9,29 +9,31 @@ class Organizm
 {
     public:
         virtual ~Organizm();
-        int getInicjatywa();
         Organizm * next = 0;
-
         void przypiszXY(int, int);
+        //getters
         int getX();
         int getY();
+        int getSila();
+        int getInicjatywa();
+        int getSzansa();
         char getOrganizmMark();
         char getLabel();
-        void akcja();
+        //methods
+        int akcja(Organizm *);
         int kolizja(Organizm *);
         int whoDied(Organizm *);
         void rozmnazanie();
-        int sila;
+        void increaseSila(int);
+        bool szansaNaSukces();
     protected:
         char label;
         char OrganizmMark;
         int x;
         int y;
+        int sila;
         int inicjatywa;
-
-//Swiat *swiat;
-
-        void rysowanie();
+        int szansa;
     private:
 
 

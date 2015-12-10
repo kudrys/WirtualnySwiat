@@ -10,7 +10,6 @@ class Guarana:public Roslina
     protected:
 
     private:
-        void akcja();
         int kolizja(Organizm *);
 };
 

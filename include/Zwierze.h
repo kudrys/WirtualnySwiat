@@ -9,11 +9,7 @@ class Zwierze:public Organizm
         virtual ~Zwierze();
         int atak(Organizm *);
     protected:
-        int sila;
-        int inicjatywa;
     private:
-        void akcja();
-        void rozmnazanie();
 };
 
 #endif // ZWIERZE_H

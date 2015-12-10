@@ -10,8 +10,7 @@ class Owca:public Zwierze
     protected:
 
     private:
-        void akcja();
-        void rozmnazanie();
+
         void kolizja();
 };
 

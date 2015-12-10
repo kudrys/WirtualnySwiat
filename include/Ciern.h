@@ -10,7 +10,6 @@ class Ciern:public Roslina
     protected:
 
     private:
-        void akcja();
         void kolizja();
 };
 

@@ -10,8 +10,6 @@ class Dinozaur:public Zwierze
     protected:
 
     private:
-        void akcja();
-        void rozmnazanie();
         int kolizja(Organizm *);
 };
 

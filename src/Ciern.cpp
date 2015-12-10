@@ -4,16 +4,12 @@ Ciern::Ciern()
 {
     label = 'C';
     sila = 2;
-
+    szansa = 100;
 }
 
 Ciern::~Ciern()
 {
     //dtor
-}
-void Ciern::akcja()
-{
-    //Próby rozprzestrzeniania siê zawsze koñcz¹ siê sukcesem.
 }
 
 void Ciern::kolizja()

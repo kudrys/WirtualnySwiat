@@ -10,9 +10,6 @@ class Wilk:public Zwierze
     protected:
 
     private:
-        void akcja();
-        void rozmnazanie();
-        void kolizja();
 };
 
 #endif // WILK_H

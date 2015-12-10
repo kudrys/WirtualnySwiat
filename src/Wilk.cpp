@@ -10,14 +10,4 @@ Wilk::Wilk(){
 Wilk::~Wilk(){
     //dtor
 }
-void Wilk::akcja(){
 
-}
-
-void Wilk::rozmnazanie(){
-
-}
-void Wilk::kolizja()
-{
-
-}

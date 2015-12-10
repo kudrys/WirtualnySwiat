@@ -9,14 +9,6 @@ Zwierze::~Zwierze(){
     //dtor
 }
 
-void Zwierze::akcja(){
-
-}
-
-void Zwierze::rozmnazanie(){
-
-}
-
 int Zwierze::atak(Organizm * napotkany)
 {
     bool isAlive;

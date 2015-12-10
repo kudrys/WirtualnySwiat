@@ -10,7 +10,6 @@ class Trawa:public Roslina
     protected:
 
     private:
-        void akcja();
         void kolizja();
 };
 

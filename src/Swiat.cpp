@@ -260,6 +260,10 @@ int Swiat::wylosujPole(int x, int y, bool mustBeFree){
     return TempX[r]*szerokosc+TempY[r];
 
 }
-void Swiat::wykonajTure(){
+void Swiat::tura(Organizm * aktualny){
+
+}
+
+void Swiat::runda(){
 
 }

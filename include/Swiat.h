@@ -7,12 +7,15 @@ class Swiat
     public:
         Swiat(int, int);
         virtual ~Swiat();
-        void losowanieXY();
+        //getters
         int getXfromValue(int);
         int getYfromValue(int);
+        int getSzeroskosc();
+        int getWysokosc();
+        //methods
+        void losowanieXY();
         Organizm * first;
         void rysujSwiat();
-        void wykonajTure();
         void wsadzZwierzakaDoSwiata(int, char);
         void dodajZwierzakaDoListy(Organizm*);
         void usunZwierzakaZListy();
@@ -20,8 +23,8 @@ class Swiat
         int wylosujWolnePole(int,int);
         int wylosujPole(int,int,bool);
         int wylosujPoleDoOkola(int, int);
-        int getSzeroskosc();
-        int getWysokosc();
+        void tura(Organizm*);
+        void runda();
     protected:
         int wysokosc;   //y
         int szerokosc;  //x

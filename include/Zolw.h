@@ -11,7 +11,6 @@ class Zolw:public Zwierze
     protected:
 
     private:
-        void akcja();
         int kolizja(Organizm *);
 };
 

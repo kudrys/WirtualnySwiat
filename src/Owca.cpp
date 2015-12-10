@@ -13,15 +13,7 @@ Owca::~Owca()
 {
     //dtor
 }
-void Owca::akcja()
-{
 
-}
-
-void Owca::rozmnazanie()
-{
-
-}
 void Owca::kolizja()
 {
 
