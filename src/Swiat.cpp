@@ -283,7 +283,6 @@ char Swiat::coToZaKierunek(int x, int y, int newx, int newy){
         cout<<"index: "<<index<<endl;
         return 'L';
     }
-    cout<<"kurwa mac";
 }
 
 void Swiat::tura(Organizm * aktualny){
