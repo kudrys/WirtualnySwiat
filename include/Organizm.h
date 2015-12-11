@@ -8,7 +8,11 @@
 class Organizm
 {
     public:
+<<<<<<< HEAD
         Organizm();
+=======
+        virtual Organizm();
+>>>>>>> 9966f5c477477ece0250437016cb2030f473aaa4
         Organizm * next = 0;
         void przypiszXY(int, int);
         //getters
