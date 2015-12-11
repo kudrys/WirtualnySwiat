@@ -8,7 +8,7 @@
 class Organizm
 {
     public:
-        virtual ~Organizm();
+        virtual Organizm();
         Organizm * next = 0;
         void przypiszXY(int, int);
         //getters
