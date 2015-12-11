@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-Organizm::~Organizm(){
+Organizm::Organizm(){
     szansa = 100;
 }
 
