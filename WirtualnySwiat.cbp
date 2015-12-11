@@ -39,6 +39,7 @@
 		<Unit filename="include/Lew.h" />
 		<Unit filename="include/Organizm.h" />
 		<Unit filename="include/Owca.h" />
+		<Unit filename="include/Queue.h" />
 		<Unit filename="include/Roslina.h" />
 		<Unit filename="include/Swiat.h" />
 		<Unit filename="include/Trawa.h" />
@@ -52,6 +53,7 @@
 		<Unit filename="src/Lew.cpp" />
 		<Unit filename="src/Organizm.cpp" />
 		<Unit filename="src/Owca.cpp" />
+		<Unit filename="src/Queue.cpp" />
 		<Unit filename="src/Roslina.cpp" />
 		<Unit filename="src/Swiat.cpp" />
 		<Unit filename="src/Trawa.cpp" />
