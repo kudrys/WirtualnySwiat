@@ -15,7 +15,7 @@ int main(){
     Swiat nowy(5,5);
     //nowy.losowanieXY();
     nowy.wsadzZwierzakaDoSwiata(1,'W');
-    nowy.kolejka.wypisz();
+    //nowy.kolejka.wypisz();
     nowy.wsadzZwierzakaDoSwiata(6,'L');
     nowy.wsadzZwierzakaDoSwiata(11,'T');
     nowy.wsadzZwierzakaDoSwiata(16,'Z');

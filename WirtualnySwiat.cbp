@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="WirtualnySwiat" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/WirtualnySwiat" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/WirtualnySwiat" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="include/Ciern.h" />
+		<Unit filename="include/Dinozaur.h" />
+		<Unit filename="include/Guarana.h" />
+		<Unit filename="include/Lew.h" />
+		<Unit filename="include/Organizm.h" />
+		<Unit filename="include/Owca.h" />
+		<Unit filename="include/Roslina.h" />
+		<Unit filename="include/Swiat.h" />
+		<Unit filename="include/Trawa.h" />
+		<Unit filename="include/Wilk.h" />
+		<Unit filename="include/Zolw.h" />
+		<Unit filename="include/Zwierze.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Ciern.cpp" />
+		<Unit filename="src/Dinozaur.cpp" />
+		<Unit filename="src/Guarana.cpp" />
+		<Unit filename="src/Lew.cpp" />
+		<Unit filename="src/Organizm.cpp" />
+		<Unit filename="src/Owca.cpp" />
+		<Unit filename="src/Roslina.cpp" />
+		<Unit filename="src/Swiat.cpp" />
+		<Unit filename="src/Trawa.cpp" />
+		<Unit filename="src/Wilk.cpp" />
+		<Unit filename="src/Zolw.cpp" />
+		<Unit filename="src/Zwierze.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
