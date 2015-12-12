@@ -1,7 +1,7 @@
 #ifndef SWIAT_H
 #define SWIAT_H
 #include "Organizm.h"
-
+#include "Queue.h"
 class Swiat
 {
     public:
@@ -13,6 +13,7 @@ class Swiat
         int getSzeroskosc();
         int getWysokosc();
         //methods
+        Queue kolejka;
         void losowanieXY();
         Organizm * first;
         void rysujSwiat();
@@ -26,6 +27,7 @@ class Swiat
         void tura(Organizm*);
         char coToZaKierunek(int,int,int,int);
         void runda();
+        void usunZwierzaka(int, int);
         Organizm *** organizmyTab;
     protected:
         int wysokosc;   //y

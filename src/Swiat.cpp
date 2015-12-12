@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <ctime>
 #include <iostream>
+#include <windows.h>
 #include "Lew.h"
 #include "Wilk.h"
 #include "Ciern.h"
@@ -18,6 +19,7 @@ Swiat::Swiat(int szer , int wys){
     wysokosc = wys;
     szerokosc = szer;
     first = 0;
+    kolejka = Queue();
 
     organizmyTab = new Organizm**[wysokosc];
     for (int i = 0; i < wysokosc; ++i) {
@@ -137,29 +139,16 @@ void Swiat::wsadzZwierzakaDoSwiata(int value, char zwierzakAscii)
         default:
         break;
     }
+    kolejka.addNode(organizmWsadzany);
     int x = getXfromValue(value);
     int y = getYfromValue(value);
-    organizmyTab[y][x] = organizmWsadzany;
+    organizmyTab[x][y] = organizmWsadzany;
     organizmWsadzany->przypiszXY(x,y);
 }
 
-void Swiat::dodajZwierzakaDoListy(Organizm * wsadzany)
-{   Organizm * temp = first;
-    while(temp){
-        if(wsadzany->getInicjatywa()<temp->getInicjatywa()){
-            wsadzany->next = temp->next;
-            temp->next = wsadzany;
-            break;
-        }
-        temp = temp->next;
-    }
-    if (temp == 0)
-        temp = wsadzany;
-}
-//dsdsds
-void Swiat::usunZwierzakaZListy()
-{
-
+void Swiat::usunZwierzaka(int x, int y){
+    kolejka.deleteNode(organizmyTab[x][y]);
+    organizmyTab[x][y]=0;
 }
 
 void Swiat::rysujSwiat(){
@@ -325,12 +314,15 @@ void Swiat::tura(Organizm * aktualny){
                 cout<<"** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
                 cout<<"//aktualny przegrywa! =NULL"<<endl;
                 organizmyTab[aktY][aktX]=0;
+                usunZwierzaka(aktY, aktX);
             }
             if(napotkany->kolizja(aktualny)==1){
                 cout<<"*** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
                 cout<<"//aktualny wygrywa! napotkany zjedzony =NULL"<<endl;
 
                 organizmyTab[napotkanyY][napotkanyX]=0;cout<<"napotX:"<<napotkanyX<<" napotY:"<<napotkanyY<<endl;
+
+                usunZwierzaka(napotkanyY, napotkanyX);
                 poruszenie(coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY),aktX,aktY);
             }
     }
@@ -338,5 +330,12 @@ void Swiat::tura(Organizm * aktualny){
 
 
 void Swiat::runda(){
-
+    while(kolejka.aktualny){
+        tura(kolejka.aktualny);
+        kolejka.next();
+        rysujSwiat();
+        Sleep(500);
+    }
+    kolejka.reset();
+    Sleep(1000);
 }

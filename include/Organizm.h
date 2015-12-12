@@ -9,7 +9,12 @@ class Organizm
 {
     public:
         Organizm();
+<<<<<<< HEAD
         Organizm * next = 0;
+=======
+        virtual ~Organizm();
+        Organizm * next;
+>>>>>>> 8bcdc596a6988eceef46ce9b0d4aa45b18468bc1
         void przypiszXY(int, int);
         //getters
         int getX();

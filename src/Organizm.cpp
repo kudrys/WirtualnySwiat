@@ -6,6 +6,10 @@ using namespace std;
 
 Organizm::Organizm(){
     szansa = 100;
+    next = 0;
+}
+Organizm::~Organizm(){
+    delete next;
 }
 
 /**
@@ -17,30 +21,22 @@ Organizm::Organizm(){
 int Organizm::akcja(Organizm * napotkany){
     if(szansaNaSukces()){
         if(this->OrganizmMark=='R'){
-            cout<<"organizm to roslina"<<endl;
             return 1;
         }
         if(napotkany==0){
-            cout<<"napotkany to null"<<endl;
             return 2;
         }
         if(this->label==napotkany->getLabel()){
-            cout<<"Labele sa takie same"<<endl;
             return 3;
         }
         return 4;
     }
 }
 
-bool Organizm::szansaNaSukces()
-{
+bool Organizm::szansaNaSukces(){
     srand( time( 0 ));
     int r = rand()%100 +1;
-    if(r<=szansa){
-        return 1;
-    }else{
-        return 0;
-    }
+    return (r<=szansa);
 }
 
 
@@ -49,9 +45,9 @@ int Organizm::kolizja(Organizm * attacking){
 }
 
 /**
- *  2 - def zyje
- *  1 - att zyje
- *  3 - obydwoje zyja
+ *  2 - def zyje (10)
+ *  1 - att zyje (01)
+ *  3 - obydwoje zyja (11)
  */
 int Organizm::whoDied(Organizm * attacking){
     int defAlive = 1;
