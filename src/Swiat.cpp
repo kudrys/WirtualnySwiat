@@ -12,6 +12,7 @@
 #include "Owca.h"
 #include "Trawa.h"
 #include "Zolw.h"
+#include "Queue.h"
 
 using namespace std;
 
