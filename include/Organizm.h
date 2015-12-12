@@ -8,8 +8,9 @@
 class Organizm
 {
     public:
-        virtual Organizm();
-        Organizm * next = 0;
+        Organizm();
+        virtual ~Organizm();
+        Organizm * next;
         void przypiszXY(int, int);
         //getters
         int getX();
