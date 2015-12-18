@@ -2,6 +2,7 @@
 
 Roslina::Roslina(){
     OrganizmMark ='R';
+    inicjatywa = 0;
 }
 
 Roslina::~Roslina(){

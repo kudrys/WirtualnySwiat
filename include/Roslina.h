@@ -8,7 +8,6 @@ class Roslina:public Organizm
         Roslina();
         virtual ~Roslina();
     protected:
-        int inicjatywa = 0;
 
     private:
 };

@@ -224,7 +224,7 @@ int Swiat::wylosujPole(int x, int y, bool mustBeFree){
 
     for(int i=0; i<4; i++){
         bool isInWorld = kierunkiX[i]<szerokosc && kierunkiY[i]<wysokosc && kierunkiX[i]>=0 && kierunkiY[i]>=0;
-        bool isEmpty = organizmyTab[kierunkiY[i]][kierunkiX[i]]==0||!mustBeFree;
+        bool isEmpty = isInWorld ? !mustBeFree||organizmyTab[kierunkiY[i]][kierunkiX[i]]==0 : false;
         if(isInWorld && isEmpty){
             TempX[i] = kierunkiX[i];
             TempY[i] = kierunkiY[i];
@@ -290,6 +290,10 @@ void Swiat::tura(Organizm * aktualny){
     //roslina
     if(aktualny->akcja(napotkany)==1){
         cout<<"//roslina"<<endl;
+        if (!(aktualny->getActive())){
+            aktualny->activate();
+            return;
+        }
         int value2 = wylosujWolnePole(aktX,aktY);
         napotkanyX = getXfromValue(value2);
         napotkanyY = getYfromValue(value2);

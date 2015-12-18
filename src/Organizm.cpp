@@ -7,9 +7,9 @@ using namespace std;
 Organizm::Organizm(){
     szansa = 100;
     next = 0;
+    active = false;
 }
 Organizm::~Organizm(){
-    delete next;
 }
 
 /**
@@ -90,4 +90,12 @@ char Organizm::getLabel(){
 }
 char Organizm::getOrganizmMark(){
     return OrganizmMark;
+}
+
+bool Organizm::getActive(){
+    return active;
+}
+
+void Organizm::activate(){
+    active = true;
 }

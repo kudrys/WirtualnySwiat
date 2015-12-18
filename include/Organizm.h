@@ -18,9 +18,11 @@ class Organizm
         int getSila();
         int getInicjatywa();
         int getSzansa();
+        bool getActive();
         char getOrganizmMark();
         char getLabel();
         //methods
+        void activate();
         int akcja(Organizm *);
         int kolizja(Organizm *);
         int whoDied(Organizm *);
@@ -28,6 +30,7 @@ class Organizm
         void increaseSila(int);
         bool szansaNaSukces();
     protected:
+        bool active;
         char label;
         char OrganizmMark;
         int x;
