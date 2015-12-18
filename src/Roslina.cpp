@@ -7,10 +7,3 @@ Roslina::Roslina(){
 Roslina::~Roslina(){
     //dtor
 }
-void Roslina::akcja(){
-
-}
-
-void Roslina::kolizja(){
-
-}

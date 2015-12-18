@@ -29,7 +29,8 @@ int main(){
     nowy.rysujSwiat();
     nowy.kolejka.wypisz();
     for(int i=0;i<10;i++){
-        nowy.runda();
+        nowy.runda();cout << "---------------";
+        nowy.kolejka.wypisz();
         nowy.rysujSwiat();
     }
 }

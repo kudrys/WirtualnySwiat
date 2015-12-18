@@ -143,7 +143,7 @@ void Swiat::wsadzZwierzakaDoSwiata(int value, char zwierzakAscii)
     kolejka.addNode(organizmWsadzany);
     int x = getXfromValue(value);
     int y = getYfromValue(value);
-    organizmyTab[x][y] = organizmWsadzany;
+    organizmyTab[y][x] = organizmWsadzany;
     organizmWsadzany->przypiszXY(x,y);
 }
 
@@ -336,6 +336,7 @@ void Swiat::runda(){
         kolejka.next();
         rysujSwiat();
         Sleep(500);
+        kolejka.wypisz();
     }
     kolejka.reset();
     Sleep(1000);
