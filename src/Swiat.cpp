@@ -140,6 +140,7 @@ void Swiat::wsadzZwierzakaDoSwiata(int value, char zwierzakAscii)
         default:
         break;
     }
+
     kolejka.addNode(organizmWsadzany);
     int x = getXfromValue(value);
     int y = getYfromValue(value);
@@ -232,6 +233,11 @@ int Swiat::wylosujPole(int x, int y, bool mustBeFree){
     int r=rand()% 4;
     int value=TempX[r];
 
+    if(TempX[0]==-1 && TempX[1]==-1 && TempX[2]==-1 && TempX[3]==-1){
+        cout<<"\n\nkurwa\n\n";
+        return -1;
+    }
+
     while(value == -1){
         r = rand()% 4;
         value = TempX[r];
@@ -286,11 +292,14 @@ void Swiat::tura(Organizm * aktualny){
     //roslina
     if(aktualny->akcja(napotkany)==1){
         cout<<"//roslina"<<endl;
-        if (!(aktualny->getActive())){
+        if (aktualny->getActive()==0){
             aktualny->activate();
             return;
         }
         int value2 = wylosujWolnePole(aktX,aktY);
+        if (value2 == -1){
+            return;
+        }
         napotkanyX = getXfromValue(value2);
         napotkanyY = getYfromValue(value2);
         wsadzZwierzakaDoSwiata(value2, aktualny->getLabel());
@@ -309,6 +318,8 @@ void Swiat::tura(Organizm * aktualny){
             return;
         }
         int value2 = wylosujWolnePole(aktX,aktY);
+        if (value2 = -1)
+            return;
         cout<<"wylosowane wolne pole:"<<value2<<"\n";
         napotkanyX = getXfromValue(value2);
         napotkanyY = getYfromValue(value2);
