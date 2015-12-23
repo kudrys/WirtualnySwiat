@@ -43,8 +43,6 @@ void Queue::wypisz(){
 }
 
 void Queue::deleteNode(Organizm * nodeToDelete){
-    std::cout << "node: " << nodeToDelete;
-    std::cout << nodeToDelete->getLabel() << "  leeeeeeeeeeeeeejbel\n";
     Organizm * temp = first;
     if (temp==nodeToDelete){
         first=0;

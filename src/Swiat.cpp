@@ -148,8 +148,8 @@ void Swiat::wsadzZwierzakaDoSwiata(int value, char zwierzakAscii)
 }
 
 void Swiat::usunZwierzaka(int x, int y){
-    kolejka.deleteNode(organizmyTab[x][y]);
-    organizmyTab[x][y]=0;
+    kolejka.deleteNode(organizmyTab[y][x]);
+    organizmyTab[y][x]=0;
 }
 
 void Swiat::rysujSwiat(){
@@ -175,22 +175,18 @@ void Swiat::poruszenie(char kierunek, int x, int y)
 
     switch(kierunek){
         case 'G':{
-            cout<<"poruszenie gora";
             newY--;
             break;
         }
         case 'D':{
-            cout<<"poruszenie dol";
             newY++;
             break;
         }
         case 'P':{
-            cout<<"poruszenie prawo";
             newX++;
             break;
         }
         case 'L':{
-            cout<<"poruszenie lewo";
             newX--;
             break;
         }
@@ -307,8 +303,13 @@ void Swiat::tura(Organizm * aktualny){
     }
     //rozmnazanie
     if(aktualny->akcja(napotkany)==3){
-        cout<<"//ruchanie"<<endl;
+        cout<<"//rozmnazanie"<<endl;
+        if (!(aktualny->getActive())){
+            aktualny->activate();
+            return;
+        }
         int value2 = wylosujWolnePole(aktX,aktY);
+        cout<<"wylosowane wolne pole:"<<value2<<"\n";
         napotkanyX = getXfromValue(value2);
         napotkanyY = getYfromValue(value2);
         wsadzZwierzakaDoSwiata(value2, aktualny->getLabel());
@@ -318,16 +319,17 @@ void Swiat::tura(Organizm * aktualny){
             if(napotkany->kolizja(aktualny)==2){
                 cout<<"** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
                 cout<<"//aktualny przegrywa! =NULL"<<endl;
-                organizmyTab[aktY][aktX]=0;
-                usunZwierzaka(aktY, aktX);
+                //organizmyTab[aktY][aktX]=0;
+                usunZwierzaka(aktX, aktY);
             }
             if(napotkany->kolizja(aktualny)==1){
                 cout<<"*** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
                 cout<<"//aktualny wygrywa! napotkany zjedzony =NULL"<<endl;
 
-                organizmyTab[napotkanyY][napotkanyX]=0;cout<<"napotX:"<<napotkanyX<<" napotY:"<<napotkanyY<<endl;
+                //organizmyTab[napotkanyY][napotkanyX]=0;
+                cout<<"napotX:"<<napotkanyX<<" napotY:"<<napotkanyY<<endl;
 
-                usunZwierzaka(napotkanyY, napotkanyX);
+                usunZwierzaka(napotkanyX, napotkanyY);
                 poruszenie(coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY),aktX,aktY);
             }
     }

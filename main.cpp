@@ -29,14 +29,12 @@ int main(){
     nowy.rysujSwiat();
     nowy.kolejka.wypisz();
     for(int i=0;i<10;i++){
-        nowy.runda();cout << "---------------";
+        nowy.runda();cout << "---------------\n\n";
         nowy.kolejka.wypisz();
         nowy.rysujSwiat();
     }
 }
 
+// Rozmnazanie sie roslin, zatrzymuje sie gdy roslina nie ma gdzie sie rozsiewac.
+// Czasami pada przy rozmnarzaniu zwierzat, ale nie zawsze
 
-// ROZSIEWANIE TRAWY WYDAJE SIE DZIALAC, TESTUJEMY DALEJ
-// RUCHAJA SIE LWY
-// PROBLEM Z PORUSZANIEM DO NULLA, LEW NIE CHCE DO NULLA (LEW ZNIKA)
-// LEW NIE BOI SIE JUZ NULLA, NIBY SMIGA
