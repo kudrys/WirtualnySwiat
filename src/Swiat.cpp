@@ -234,7 +234,6 @@ int Swiat::wylosujPole(int x, int y, bool mustBeFree){
     int value=TempX[r];
 
     if(TempX[0]==-1 && TempX[1]==-1 && TempX[2]==-1 && TempX[3]==-1){
-        cout<<"\n\nkurwa\n\n";
         return -1;
     }
 
@@ -278,6 +277,9 @@ char Swiat::coToZaKierunek(int x, int y, int newx, int newy){
 }
 
 void Swiat::tura(Organizm * aktualny){
+    if (aktualny->getActive()==0){
+        return;
+    }
     int aktX = aktualny->getX();
     int aktY = aktualny->getY();
     int value = wylosujPoleDoOkola(aktX,aktY);
@@ -292,10 +294,6 @@ void Swiat::tura(Organizm * aktualny){
     //roslina
     if(aktualny->akcja(napotkany)==1){
         cout<<"//roslina"<<endl;
-        if (aktualny->getActive()==0){
-            aktualny->activate();
-            return;
-        }
         int value2 = wylosujWolnePole(aktX,aktY);
         if (value2 == -1){
             return;
@@ -313,10 +311,6 @@ void Swiat::tura(Organizm * aktualny){
     //rozmnazanie
     if(aktualny->akcja(napotkany)==3){
         cout<<"//rozmnazanie"<<endl;
-        if (!(aktualny->getActive())){
-            aktualny->activate();
-            return;
-        }
         int value2 = wylosujWolnePole(aktX,aktY);
         if (value2 = -1)
             return;
@@ -350,6 +344,7 @@ void Swiat::tura(Organizm * aktualny){
 void Swiat::runda(){
     while(kolejka.aktualny){
         tura(kolejka.aktualny);
+        kolejka.aktualny->activate();
         kolejka.next();
         rysujSwiat();
         Sleep(500);
