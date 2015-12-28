@@ -4,7 +4,7 @@ Guarana::Guarana()
 {
     label = 'G';
     sila = 0;
-    szansa = 10;
+    szansa = 40;
 }
 
 Guarana::~Guarana()

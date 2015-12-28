@@ -194,9 +194,12 @@ void Swiat::poruszenie(char kierunek, int x, int y)
         default: {}
     }
     if(newX<szerokosc && newY<wysokosc && newX>=0 && newY>=0){
+        //cout<<"new:"<<organizmyTab[newY][newX]->getLabel();
+        cout<<"\nold:"<<organizmyTab[y][x]->getLabel()<<endl;
         organizmyTab[newY][newX] = organizmyTab[y][x];
         organizmyTab[newY][newX]->przypiszXY(newX, newY);
         organizmyTab[y][x]=0;
+
 //        aktualny = organizmyTab[aktualny->getY()][aktualny->getX()];   //jakby cos sie zjebalo to zamienic mniejscami
 //        organizmyTab[x][y] = 0;
     }
@@ -259,19 +262,15 @@ char Swiat::coToZaKierunek(int x, int y, int newx, int newy){
         }
     }
     if(index==0){
-        cout<<"index: "<<index<<endl;
         return 'G';
     }
     if(index==1){
-        cout<<"index: "<<index<<endl;
         return 'P';
     }
     if(index==2){
-        cout<<"index: "<<index<<endl;
         return 'D';
     }
     if(index==3){
-        cout<<"index: "<<index<<endl;
         return 'L';
     }
 }
@@ -325,7 +324,7 @@ void Swiat::tura(Organizm * aktualny){
                 cout<<"** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
                 cout<<"//aktualny przegrywa! =NULL"<<endl;
                 //organizmyTab[aktY][aktX]=0;
-                usunZwierzaka(aktX, aktY);
+                usunZwierzaka(aktY, aktX);
             }
             if(napotkany->kolizja(aktualny)==1){
                 cout<<"*** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
