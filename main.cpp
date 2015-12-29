@@ -56,6 +56,6 @@ int main(){
 }
 
 //Przemyslec pierwsza runde, musi sie wykonac, ale nie moze byc wypisywana. --- zrobione.
-//Losowanie nie dziala dobrze dla "wysokich map (10,25)" - zjebane rozmiary albo samo losowanie.
+//Losowanie nie dziala dobrze dla wysokich i szerokich map (10,25) i (25,10), dla kwadratu jako tako dziala. - zjebane rozmiary albo samo losowanie.
 //zapytac o getXfromValue. Sprawdzac co jest wieksze? szer czy wysokosc?
 
