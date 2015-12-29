@@ -61,14 +61,6 @@ void Swiat::losowanieXY(){
         int losIndex = rand()%8;
         wsadzZwierzakaDoSwiata(wylosowaneTab[i],zwierzakiDoWylosowania[losIndex]);
     }
-
-//rysowanie wylosowanych:
-//    for(int i = 0; i < szerokosc; i++){
-//        for(int j = 0; j < wysokosc; j++){
-//            cout<<tabLosowychXY[i*wysokosc+j]<<" ";
-//        }
-//        cout<<endl;
-//    }
 }
 
 int Swiat::getXfromValue(int value)
@@ -194,8 +186,6 @@ void Swiat::poruszenie(char kierunek, int x, int y)
         default: {}
     }
     if(newX<szerokosc && newY<wysokosc && newX>=0 && newY>=0){
-        //cout<<"new:"<<organizmyTab[newY][newX]->getLabel();
-        cout<<"\nold:"<<organizmyTab[y][x]->getLabel()<<endl;
         organizmyTab[newY][newX] = organizmyTab[y][x];
         organizmyTab[newY][newX]->przypiszXY(newX, newY);
         organizmyTab[y][x]=0;
@@ -279,6 +269,10 @@ void Swiat::tura(Organizm * aktualny){
     if (aktualny->getActive()==0){
         return;
     }
+    rysujSwiat();
+    kolejka.wypisz();
+    Sleep(500);
+
     int aktX = aktualny->getX();
     int aktY = aktualny->getY();
     int value = wylosujPoleDoOkola(aktX,aktY);
@@ -345,9 +339,11 @@ void Swiat::runda(){
         tura(kolejka.aktualny);
         kolejka.aktualny->activate();
         kolejka.next();
-        rysujSwiat();
-        Sleep(500);
-        kolejka.wypisz();
+        //if(kolejka.aktualny!=0)
+          //  cout<<"next: "<<kolejka.aktualny->getLabel()<<endl;
+        //rysujSwiat();
+
+        //kolejka.wypisz();
     }
     kolejka.reset();
     Sleep(1000);

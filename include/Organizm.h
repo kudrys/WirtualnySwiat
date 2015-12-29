@@ -11,7 +11,7 @@ class Organizm
         Organizm();
         virtual ~Organizm();
         Organizm * next;
-        void przypiszXY(int, int);
+
         //getters
         int getX();
         int getY();
@@ -22,6 +22,7 @@ class Organizm
         char getOrganizmMark();
         char getLabel();
         //methods
+        void przypiszXY(int, int);
         void activate();
         int akcja(Organizm *);
         int kolizja(Organizm *);

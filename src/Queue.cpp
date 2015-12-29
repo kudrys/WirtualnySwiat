@@ -48,12 +48,13 @@ void Queue::deleteNode(Organizm * nodeToDelete){
         first=0;
         return;
     }
+
     while(temp->next && temp->next!=nodeToDelete)
         temp=temp->next;
     if(temp->next){
         temp->next=temp->next->next;
         nodeToDelete->next=0;
-        delete nodeToDelete;
+        delete nodeToDelete;std::cout<<"\ndeleted\n";
     }
 
 }

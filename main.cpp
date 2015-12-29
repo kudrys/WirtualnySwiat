@@ -10,8 +10,9 @@ using namespace std;
 //5 - *****
 //6 - *****
 //7 - *****
-int main(){
-    cout<<"RYSZARD KUDUK 143271\n";
+
+void test(){
+
     Swiat nowy(5,5);
     //nowy.losowanieXY();
     nowy.wsadzZwierzakaDoSwiata(1,'W');
@@ -21,10 +22,8 @@ int main(){
     nowy.wsadzZwierzakaDoSwiata(16,'Z');
     nowy.wsadzZwierzakaDoSwiata(7,'L');
     nowy.wsadzZwierzakaDoSwiata(12,'C');
-
-    nowy.rysujSwiat();
     cout<<endl;
-    nowy.tura(nowy.organizmyTab[2][1]);   //do organizmyTab trzeba podawac odwrotnie X i Y, chuj wie czemu
+    //nowy.tura(nowy.organizmyTab[2][1]);   //do organizmyTab trzeba podawac odwrotnie X i Y, chuj wie czemu
     cout<<endl<<"----WYNIK---"<<endl;
     nowy.rysujSwiat();
     nowy.kolejka.wypisz();
@@ -35,6 +34,28 @@ int main(){
     }
 }
 
-// Rozmnazanie sie roslin, zatrzymuje sie gdy roslina nie ma gdzie sie rozsiewac.
-// Czasami pada przy rozmnarzaniu zwierzat, ale nie zawsze
+int main(){
+    cout<<"RYSZARD KUDUK 143271\n";
+    //test();
+    int x,y;
+    cout<<"podaj x:";
+    cin>>x;
+    cout<<"podaj y:";
+    cin>>y;
+
+    Swiat nowy(x,y);
+    nowy.losowanieXY();
+    cout<<endl;
+    //nowy.rysujSwiat();
+    //nowy.kolejka.wypisz();
+    cout<<endl;
+    for(int i=0;i<10;i++){
+        nowy.runda();
+        cout << "-----------NOWA--RUNDA---------\n\n";
+    }
+}
+
+//Przemyslec pierwsza runde, musi sie wykonac, ale nie moze byc wypisywana. --- zrobione.
+//Losowanie nie dziala dobrze dla "wysokich map (10,25)" - zjebane rozmiary albo samo losowanie.
+//zapytac o getXfromValue. Sprawdzac co jest wieksze? szer czy wysokosc?
 
