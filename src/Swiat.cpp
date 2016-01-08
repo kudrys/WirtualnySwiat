@@ -4,6 +4,7 @@
 #include <ctime>
 #include <iostream>
 #include <windows.h>
+#include <algorithm>
 #include "Lew.h"
 #include "Wilk.h"
 #include "Ciern.h"
@@ -42,7 +43,7 @@ Swiat::~Swiat(){
 void Swiat::losowanieXY(){
     srand( time( 0 ));
     int tabSize = szerokosc*wysokosc;
-    int iloscWylosowanych = (tabSize)/10;
+    int iloscWylosowanych = (tabSize)/5;
     int tabLosowychXY[tabSize];
     int wylosowaneTab[iloscWylosowanych];
     char zwierzakiDoWylosowania[]="CDGLOTWZ";
@@ -50,14 +51,12 @@ void Swiat::losowanieXY(){
     for(int i=0;i<tabSize;i++){
         tabLosowychXY[i]=i;
     }
-    for(int i=0;i<iloscWylosowanych;i++){
-        int temp = rand()%tabSize-1;
-        int temp2 = tabLosowychXY[tabSize-1-i];
-        tabLosowychXY[tabSize-1-i] = tabLosowychXY[temp];
-        tabLosowychXY[temp] = temp2;
-        wylosowaneTab[i]=tabLosowychXY[tabSize-1-i];
-        cout<<wylosowaneTab[i]<<endl;
+    cout<<endl;
+    random_shuffle(tabLosowychXY, tabLosowychXY+tabSize);
 
+
+    for(int i=0;i<iloscWylosowanych;i++){
+        wylosowaneTab[i] = tabLosowychXY[i];
         int losIndex = rand()%8;
         wsadzZwierzakaDoSwiata(wylosowaneTab[i],zwierzakiDoWylosowania[losIndex]);
     }
@@ -65,12 +64,12 @@ void Swiat::losowanieXY(){
 
 int Swiat::getXfromValue(int value)
 {
-    return value/szerokosc;
+    return value%szerokosc;
 }
 
 int Swiat::getYfromValue(int value)
 {
-    return value%szerokosc;
+    return value/szerokosc;
 }
 
 int Swiat::getSzeroskosc()
@@ -141,6 +140,7 @@ void Swiat::wsadzZwierzakaDoSwiata(int value, char zwierzakAscii)
 }
 
 void Swiat::usunZwierzaka(int x, int y){
+    cout<<"usuwamy: "<<organizmyTab[y][x]->getLabel()<<endl;
     kolejka.deleteNode(organizmyTab[y][x]);
     organizmyTab[y][x]=0;
 }
@@ -236,7 +236,7 @@ int Swiat::wylosujPole(int x, int y, bool mustBeFree){
     }
 
     //cout<<"wynik: "<<TempX[r]*szerokosc+TempY[r]<<endl;
-    return TempX[r]*szerokosc+TempY[r];
+    return TempY[r]*szerokosc+TempX[r];
 
 }
 
@@ -265,11 +265,12 @@ char Swiat::coToZaKierunek(int x, int y, int newx, int newy){
     }
 }
 
-void Swiat::tura(Organizm * aktualny){
+int Swiat::tura(Organizm * aktualny){
     if (aktualny->getActive()==0){
-        return;
+        return 0;
     }
     rysujSwiat();
+    cout<<endl;
     kolejka.wypisz();
     Sleep(500);
 
@@ -282,14 +283,14 @@ void Swiat::tura(Organizm * aktualny){
     Organizm * napotkany = organizmyTab[napotkanyY][napotkanyX];
 
     cout<<"Aktualny: "<<aktualny->getLabel()<<", ("<<aktX<<";"<<aktY<<")"<<endl;
-    cout<<"wylosowane pole: "<<value<<endl;
+    cout<<"wylosowane pole: ("<<getXfromValue(value)<<","<<getYfromValue(value)<<")\n";
 
     //roslina
     if(aktualny->akcja(napotkany)==1){
         cout<<"//roslina"<<endl;
         int value2 = wylosujWolnePole(aktX,aktY);
         if (value2 == -1){
-            return;
+            return 0;
         }
         napotkanyX = getXfromValue(value2);
         napotkanyY = getYfromValue(value2);
@@ -306,44 +307,40 @@ void Swiat::tura(Organizm * aktualny){
         cout<<"//rozmnazanie"<<endl;
         int value2 = wylosujWolnePole(aktX,aktY);
         if (value2 = -1)
-            return;
-        cout<<"wylosowane wolne pole:"<<value2<<"\n";
+            return 0;
+
         napotkanyX = getXfromValue(value2);
         napotkanyY = getYfromValue(value2);
+        cout<<"wylosowane wolne pole: ("<<getXfromValue(value2)<<","<<getYfromValue(value2)<<")\n";
         wsadzZwierzakaDoSwiata(value2, aktualny->getLabel());
     }
     //kolizja
     if(aktualny->akcja(napotkany)==4){
             if(napotkany->kolizja(aktualny)==2){
                 cout<<"** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
-                cout<<"//aktualny przegrywa! =NULL"<<endl;
-                //organizmyTab[aktY][aktX]=0;
-                usunZwierzaka(aktY, aktX);
+                cout<<"//aktualny przegrywa!"<<endl;
+                usunZwierzaka(aktX, aktY);
+                return -1;
             }
             if(napotkany->kolizja(aktualny)==1){
                 cout<<"*** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
-                cout<<"//aktualny wygrywa! napotkany zjedzony =NULL"<<endl;
-
-                //organizmyTab[napotkanyY][napotkanyX]=0;
-                cout<<"napotX:"<<napotkanyX<<" napotY:"<<napotkanyY<<endl;
-
+                cout<<"//aktualny wygrywa! Napotkany zjedzony!"<<endl;
                 usunZwierzaka(napotkanyX, napotkanyY);
                 poruszenie(coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY),aktX,aktY);
+                return 0;
             }
     }
 }
 
-
 void Swiat::runda(){
     while(kolejka.aktualny){
-        tura(kolejka.aktualny);
-        kolejka.aktualny->activate();
-        kolejka.next();
-        //if(kolejka.aktualny!=0)
-          //  cout<<"next: "<<kolejka.aktualny->getLabel()<<endl;
-        //rysujSwiat();
-
-        //kolejka.wypisz();
+        Organizm * temp = kolejka.aktualny->next;
+        int tempReturn = tura(kolejka.aktualny);
+        if(temp)
+            kolejka.aktualny->activate();
+        if(tempReturn == -1)
+            kolejka.aktualny = temp->next;
+        kolejka.aktualny = temp;
     }
     kolejka.reset();
     Sleep(1000);

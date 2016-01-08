@@ -24,6 +24,7 @@ class Organizm
         //methods
         void przypiszXY(int, int);
         void activate();
+        void deactivate();
         int akcja(Organizm *);
         int kolizja(Organizm *);
         int whoDied(Organizm *);

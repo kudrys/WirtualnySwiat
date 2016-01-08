@@ -18,13 +18,12 @@ class Swiat
         Organizm * first;
         void rysujSwiat();
         void wsadzZwierzakaDoSwiata(int, char);
-        void dodajZwierzakaDoListy(Organizm*);
         void usunZwierzakaZListy();
         void poruszenie(char, int, int);
         int wylosujWolnePole(int,int);
         int wylosujPole(int,int,bool);
         int wylosujPoleDoOkola(int, int);
-        void tura(Organizm*);
+        int tura(Organizm*);
         char coToZaKierunek(int,int,int,int);
         void runda();
         void usunZwierzaka(int, int);

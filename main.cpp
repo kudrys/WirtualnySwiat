@@ -2,21 +2,12 @@
 #include "Swiat.h"
 #include <windows.h>
 using namespace std;
-//0 - *****
-//1 - WLTZ*
-//2 - *LC**
-//3 - *****
-//4 - *****
-//5 - *****
-//6 - *****
-//7 - *****
 
 void test(){
 
     Swiat nowy(5,5);
     //nowy.losowanieXY();
     nowy.wsadzZwierzakaDoSwiata(1,'W');
-    nowy.kolejka.wypisz();
     nowy.wsadzZwierzakaDoSwiata(6,'L');
     nowy.wsadzZwierzakaDoSwiata(11,'T');
     nowy.wsadzZwierzakaDoSwiata(16,'Z');
@@ -30,13 +21,14 @@ void test(){
     for(int i=0;i<10;i++){
         nowy.runda();cout << "---------------\n\n";
         nowy.kolejka.wypisz();
-        nowy.rysujSwiat();
+        //nowy.rysujSwiat();
     }
 }
 
 int main(){
-    cout<<"RYSZARD KUDUK 143271\n";
+
     //test();
+    cout<<"RYSZARD KUDUK 143271\n";
     int x,y;
     cout<<"podaj x:";
     cin>>x;
@@ -46,16 +38,7 @@ int main(){
     Swiat nowy(x,y);
     nowy.losowanieXY();
     cout<<endl;
-    //nowy.rysujSwiat();
-    //nowy.kolejka.wypisz();
-    cout<<endl;
     for(int i=0;i<10;i++){
         nowy.runda();
-        cout << "-----------NOWA--RUNDA---------\n\n";
     }
 }
-
-//Przemyslec pierwsza runde, musi sie wykonac, ale nie moze byc wypisywana. --- zrobione.
-//Losowanie nie dziala dobrze dla wysokich i szerokich map (10,25) i (25,10), dla kwadratu jako tako dziala. - zjebane rozmiary albo samo losowanie.
-//zapytac o getXfromValue. Sprawdzac co jest wieksze? szer czy wysokosc?
-

@@ -95,7 +95,9 @@ char Organizm::getOrganizmMark(){
 bool Organizm::getActive(){
     return active;
 }
-
+void Organizm::deactivate(){
+    active = false;
+}
 void Organizm::activate(){
     active = true;
 }
