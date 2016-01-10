@@ -38,7 +38,9 @@ int main(){
     Swiat nowy(x,y);
     nowy.losowanieXY();
     cout<<endl;
-    for(int i=0;i<10;i++){
+    int z;
+    nowy.kolejka.wypisz();
+    while(1){
         nowy.runda();
     }
 }

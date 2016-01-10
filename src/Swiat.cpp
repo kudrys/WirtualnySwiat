@@ -43,7 +43,7 @@ Swiat::~Swiat(){
 void Swiat::losowanieXY(){
     srand( time( 0 ));
     int tabSize = szerokosc*wysokosc;
-    int iloscWylosowanych = (tabSize)/5;
+    int iloscWylosowanych = (tabSize)/2;
     int tabLosowychXY[tabSize];
     int wylosowaneTab[iloscWylosowanych];
     char zwierzakiDoWylosowania[]="CDGLOTWZ";
@@ -190,7 +190,7 @@ void Swiat::poruszenie(char kierunek, int x, int y)
         organizmyTab[newY][newX]->przypiszXY(newX, newY);
         organizmyTab[y][x]=0;
 
-//        aktualny = organizmyTab[aktualny->getY()][aktualny->getX()];   //jakby cos sie zjebalo to zamienic mniejscami
+//        aktualny = organizmyTab[aktualny->getY()][aktualny->getX()];
 //        organizmyTab[x][y] = 0;
     }
 }
@@ -266,9 +266,13 @@ char Swiat::coToZaKierunek(int x, int y, int newx, int newy){
 }
 
 int Swiat::tura(Organizm * aktualny){
+    int z;
+
     if (aktualny->getActive()==0){
         return 0;
     }
+    if(cin>>z){
+    cout<<"   ***NOWA TURA***\n";
     rysujSwiat();
     cout<<endl;
     kolejka.wypisz();
@@ -331,8 +335,10 @@ int Swiat::tura(Organizm * aktualny){
             }
     }
 }
+}
 
 void Swiat::runda(){
+    cout<<"-----Nowa-Runda-----\n";
     while(kolejka.aktualny){
         Organizm * temp = kolejka.aktualny->next;
         int tempReturn = tura(kolejka.aktualny);
@@ -341,6 +347,9 @@ void Swiat::runda(){
         if(tempReturn == -1)
             kolejka.aktualny = temp->next;
         kolejka.aktualny = temp;
+        cout<<endl<<endl;
+        rysujSwiat();
+        cout<<"   ***KONIEC TURY***\n";
     }
     kolejka.reset();
     Sleep(1000);
