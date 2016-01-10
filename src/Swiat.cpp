@@ -272,7 +272,7 @@ int Swiat::tura(Organizm * aktualny){
         return 0;
     }
     if(cin>>z){
-    cout<<"   ***NOWA TURA***\n";
+    cout<<"   ***NOWA TURA***\n\n";
     rysujSwiat();
     cout<<endl;
     kolejka.wypisz();
@@ -294,6 +294,7 @@ int Swiat::tura(Organizm * aktualny){
         cout<<"//roslina"<<endl;
         int value2 = wylosujWolnePole(aktX,aktY);
         if (value2 == -1){
+            cout<<"Nie ma miejsca na nowy organizm.\n\n   ***KONIEC TURY***\n\n";
             return 0;
         }
         napotkanyX = getXfromValue(value2);
@@ -310,9 +311,10 @@ int Swiat::tura(Organizm * aktualny){
     if(aktualny->akcja(napotkany)==3){
         cout<<"//rozmnazanie"<<endl;
         int value2 = wylosujWolnePole(aktX,aktY);
-        if (value2 = -1)
+        if (value2 = -1){
+            cout<<"Nie ma miejsca na nowy organizm.\n\n   ***KONIEC TURY***\n\n";
             return 0;
-
+        }
         napotkanyX = getXfromValue(value2);
         napotkanyY = getYfromValue(value2);
         cout<<"wylosowane wolne pole: ("<<getXfromValue(value2)<<","<<getYfromValue(value2)<<")\n";
@@ -324,6 +326,8 @@ int Swiat::tura(Organizm * aktualny){
                 cout<<"** kierunek: "<<coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY)<<endl;
                 cout<<"//aktualny przegrywa!"<<endl;
                 usunZwierzaka(aktX, aktY);
+                rysujSwiat();
+                cout<<"\n\n   ***KONIEC TURY***\n\n";
                 return -1;
             }
             if(napotkany->kolizja(aktualny)==1){
@@ -331,9 +335,14 @@ int Swiat::tura(Organizm * aktualny){
                 cout<<"//aktualny wygrywa! Napotkany zjedzony!"<<endl;
                 usunZwierzaka(napotkanyX, napotkanyY);
                 poruszenie(coToZaKierunek(aktX,aktY,napotkanyX,napotkanyY),aktX,aktY);
+                rysujSwiat();
+                cout<<"\n\n   ***KONIEC TURY***\n\n";
                 return 0;
             }
     }
+    cout<<endl<<endl;
+        rysujSwiat();
+        cout<<"\n\n   ***KONIEC TURY***\n\n";
 }
 }
 
@@ -344,12 +353,10 @@ void Swiat::runda(){
         int tempReturn = tura(kolejka.aktualny);
         if(temp)
             kolejka.aktualny->activate();
-        if(tempReturn == -1)
+        if(tempReturn == -1){
             kolejka.aktualny = temp->next;
+        }
         kolejka.aktualny = temp;
-        cout<<endl<<endl;
-        rysujSwiat();
-        cout<<"   ***KONIEC TURY***\n";
     }
     kolejka.reset();
     Sleep(1000);
